@@ -1,8 +1,10 @@
 [package]
-name = "gmsh-rs"
+name = "gmsh-sys"
 version = "0.1.0"
 authors = ["Max Orok <morok@mevex.com>"]
 edition = "2018"
+
+links = "gmsh"
 
 [dependencies]
 
