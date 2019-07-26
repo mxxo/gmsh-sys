@@ -1,7 +1,15 @@
 [package]
 name = "gmsh-sys"
+description = "Low-level bindings to the Gmsh API"
+
 version = "0.1.0"
 authors = ["Max Orok <morok@mevex.com>"]
 edition = "2018"
+license = "GPL-2.0-or-later"
 
+readme = "README.md"
+documentation = "README.md"
+keywords = ["ffi", "Gmsh"]
+categories = ["external-ffi-bindings", "science"]
+# requires the gmsh library
 links = "gmsh"

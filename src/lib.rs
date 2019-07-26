@@ -1,6 +1,7 @@
 // Gmsh C API bindings (v4.4.1)
-//
 // Generated from gmshc.h @ commit d1769d55
+//
+// Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle
 
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
