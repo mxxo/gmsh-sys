@@ -5,9 +5,3 @@ authors = ["Max Orok <morok@mevex.com>"]
 edition = "2018"
 
 links = "gmsh"
-
-[dependencies]
-
-[build-dependencies]
-bindgen = "0.50.0"
-
