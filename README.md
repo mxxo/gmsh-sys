@@ -4,9 +4,9 @@ They're very low-level and you'll likely want them wrapped in a higher-level cra
 
 You'll need a copy of the Gmsh SDK library (`libgmsh`) to link with.  
 
-From the Gmsh website: 
+From the [Gmsh website](http://gmsh.info/): 
 
 Gmsh is a free 3D finite element mesh generator with a built-in CAD engine and post-processor.
 Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle.
-[Gmsh website](http://gmsh.info/)
-[Gmsh development website](
+
+[Development website](https://gitlab.onelab.info/gmsh/gmsh)
