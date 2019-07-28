@@ -4,11 +4,11 @@ They're very low-level and you'll likely want them wrapped in a higher-level cra
 
 You'll need a copy of the Gmsh SDK library (`libgmsh`) to link with.  
 
-From the [Gmsh website](http://gmsh.info/): 
-
-Gmsh is a free 3D finite element mesh generator with a built-in CAD engine and post-processor.
-
 Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle.
+
+From the [Gmsh website](http://gmsh.info/): 
+> Gmsh is a free 3D finite element mesh generator with a built-in CAD engine and post-processor.
+
 
 Further reading: 
 * [Gmsh documentation](http://gmsh.info/doc/texinfo/gmsh.html)
