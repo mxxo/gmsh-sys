@@ -4,6 +4,22 @@ They're very low-level and you'll likely want them wrapped in a higher-level cra
 
 You'll need a copy of the Gmsh SDK library (`libgmsh`) to link with.  
 
+For posterity, the exact `bindgen` call (v0.50.0) was 
+```rust
+let bindings = bindgen::Builder::default()
+                .header("gmsh/api/gmshc.h")
+                .generate_comments(true)
+                .generate()
+                .expect("Unable to generate bindings");
+
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    bindings
+        .write_to_file(out_path.join("bindings.rs"))
+        .expect("Couldn't write bindings!");
+``` 
+
+---------------------
+
 Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle.
 
 From the [Gmsh website](http://gmsh.info/): 
