@@ -26,7 +26,7 @@ From the [Gmsh website](http://gmsh.info/):
 > Gmsh is a free 3D finite element mesh generator with a built-in CAD engine and post-processor.
 
 
-Further reading: 
+Links: 
 * [Gmsh documentation](http://gmsh.info/doc/texinfo/gmsh.html)
 * [Gmsh API demos](https://gitlab.onelab.info/gmsh/gmsh/blob/master/demos/api/README.txt)
 * [Gmsh development website](https://gitlab.onelab.info/gmsh/gmsh)

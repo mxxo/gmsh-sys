@@ -1,11 +1,11 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-
-/// Gmsh C API bindings (v4.4.1)
-/// Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle
-///
-/// By design, the Gmsh C API is purely functional, and only uses elementary
-/// types. See `gmsh/demos/api' for examples.
+//! Gmsh C API bindings (v4.4.1)
+//!
+//! Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle
+//!
+//! By design, the Gmsh C API is purely functional, and only uses elementary
+//! types.
 
 //
 //  Generated from gmshc.h @ commit d1769d55
@@ -70,9 +70,9 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Initialize Gmsh. This must be called before any call to the other functions"]
-    #[doc = " in the API. If `argc' and `argv' (or just `argv' in Python or Julia) are"]
+    #[doc = " in the API. If `argc` and `argv` (or just `argv` in Python or Julia) are"]
     #[doc = " provided, they will be handled in the same way as the command line"]
-    #[doc = " arguments in the Gmsh app. If `readConfigFiles' is set, read system Gmsh"]
+    #[doc = " arguments in the Gmsh app. If `readConfigFiles` is set, read system Gmsh"]
     #[doc = " configuration files (gmshrc and gmsh-options)."]
     pub fn gmshInitialize(
         argc: ::std::os::raw::c_int,
@@ -86,13 +86,13 @@ extern "C" {
     pub fn gmshFinalize(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Open a file. Equivalent to the `File->Open' menu in the Gmsh app. Handling"]
+    #[doc = " Open a file. Equivalent to the `File->Open` menu in the Gmsh app. Handling"]
     #[doc = " of the file depends on its extension and/or its contents: opening a file"]
     #[doc = " with model data will create a new model."]
     pub fn gmshOpen(fileName: *const ::std::os::raw::c_char, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Merge a file. Equivalent to the `File->Merge' menu in the Gmsh app."]
+    #[doc = " Merge a file. Equivalent to the `File->Merge` menu in the Gmsh app."]
     #[doc = " Handling of the file depends on its extension and/or its contents. Merging"]
     #[doc = " a file with model data will add the data to the current model."]
     pub fn gmshMerge(fileName: *const ::std::os::raw::c_char, ierr: *mut ::std::os::raw::c_int);
@@ -107,8 +107,8 @@ extern "C" {
     pub fn gmshClear(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Set a numerical option to `value'. `name' is of the form \"category.option\""]
-    #[doc = " or \"category[num].option\". Available categories and options are listed in"]
+    #[doc = " Set a numerical option to `value`. `name` is of the form \"category.option\""]
+    #[doc = " or \"category\\[num\\].option\". Available categories and options are listed in"]
     #[doc = " the Gmsh reference manual."]
     pub fn gmshOptionSetNumber(
         name: *const ::std::os::raw::c_char,
@@ -117,8 +117,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the `value' of a numerical option. `name' is of the form"]
-    #[doc = " \"category.option\" or \"category[num].option\". Available categories and"]
+    #[doc = " Get the `value` of a numerical option. `name` is of the form"]
+    #[doc = " \"category.option\" or \"category\\[num\\].option\". Available categories and"]
     #[doc = " options are listed in the Gmsh reference manual."]
     pub fn gmshOptionGetNumber(
         name: *const ::std::os::raw::c_char,
@@ -127,8 +127,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a string option to `value'. `name' is of the form \"category.option\" or"]
-    #[doc = " \"category[num].option\". Available categories and options are listed in the"]
+    #[doc = " Set a string option to `value`. `name` is of the form \"category.option\" or"]
+    #[doc = " \"category\\[num\\].option\". Available categories and options are listed in the"]
     #[doc = " Gmsh reference manual."]
     pub fn gmshOptionSetString(
         name: *const ::std::os::raw::c_char,
@@ -137,8 +137,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the `value' of a string option. `name' is of the form \"category.option\""]
-    #[doc = " or \"category[num].option\". Available categories and options are listed in"]
+    #[doc = " Get the `value` of a string option. `name` is of the form \"category.option\""]
+    #[doc = " or \"category\\[num\\].option\". Available categories and options are listed in"]
     #[doc = " the Gmsh reference manual."]
     pub fn gmshOptionGetString(
         name: *const ::std::os::raw::c_char,
@@ -147,9 +147,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a color option to the RGBA value (`r', `g', `b', `a'), where where `r',"]
-    #[doc = " `g', `b' and `a' should be integers between 0 and 255. `name' is of the"]
-    #[doc = " form \"category.option\" or \"category[num].option\". Available categories and"]
+    #[doc = " Set a color option to the RGBA value (`r`, `g`, `b`, `a`), where where `r`,"]
+    #[doc = " `g`, `b` and `a` should be integers between 0 and 255. `name` is of the"]
+    #[doc = " form \"category.option\" or \"category\\[num\\].option\". Available categories and"]
     #[doc = " options are listed in the Gmsh reference manual, with the \"Color.\" middle"]
     #[doc = " string removed."]
     pub fn gmshOptionSetColor(
@@ -162,8 +162,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the `r', `g', `b', `a' value of a color option. `name' is of the form"]
-    #[doc = " \"category.option\" or \"category[num].option\". Available categories and"]
+    #[doc = " Get the `r`, `g`, `b`, `a` value of a color option. `name` is of the form"]
+    #[doc = " \"category.option\" or \"category\\[num\\].option\". Available categories and"]
     #[doc = " options are listed in the Gmsh reference manual, with the \"Color.\" middle"]
     #[doc = " string removed."]
     pub fn gmshOptionGetColor(
@@ -176,7 +176,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add a new model, with name `name', and set it as the current model."]
+    #[doc = " Add a new model, with name `name`, and set it as the current model."]
     pub fn gmshModelAdd(name: *const ::std::os::raw::c_char, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
@@ -192,7 +192,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the current model to the model with name `name'. If several models have"]
+    #[doc = " Set the current model to the model with name `name`. If several models have"]
     #[doc = " the same name, select the one that was added first."]
     pub fn gmshModelSetCurrent(
         name: *const ::std::os::raw::c_char,
@@ -200,8 +200,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get all the entities in the current model. If `dim' is >= 0, return only"]
-    #[doc = " the entities of the specified dimension (e.g. points if `dim' == 0). The"]
+    #[doc = " Get all the entities in the current model. If `dim` is >= 0, return only"]
+    #[doc = " the entities of the specified dimension (e.g. points if `dim` == 0). The"]
     #[doc = " entities are returned as a vector of (dim, tag) integer pairs."]
     pub fn gmshModelGetEntities(
         dimTags: *mut *mut ::std::os::raw::c_int,
@@ -211,7 +211,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the name of the entity of dimension `dim' and tag `tag'."]
+    #[doc = " Set the name of the entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelSetEntityName(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -220,7 +220,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the name of the entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the name of the entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelGetEntityName(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -229,8 +229,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get all the physical groups in the current model. If `dim' is >= 0, return"]
-    #[doc = " only the entities of the specified dimension (e.g. physical points if `dim'"]
+    #[doc = " Get all the physical groups in the current model. If `dim` is >= 0, return"]
+    #[doc = " only the entities of the specified dimension (e.g. physical points if `dim`"]
     #[doc = " == 0). The entities are returned as a vector of (dim, tag) integer pairs."]
     pub fn gmshModelGetPhysicalGroups(
         dimTags: *mut *mut ::std::os::raw::c_int,
@@ -241,7 +241,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the tags of the model entities making up the physical group of"]
-    #[doc = " dimension `dim' and tag `tag'."]
+    #[doc = " dimension `dim` and tag `tag`."]
     pub fn gmshModelGetEntitiesForPhysicalGroup(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -252,7 +252,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the tags of the physical groups (if any) to which the model entity of"]
-    #[doc = " dimension `dim' and tag `tag' belongs."]
+    #[doc = " dimension `dim` and tag `tag` belongs."]
     pub fn gmshModelGetPhysicalGroupsForEntity(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -262,9 +262,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add a physical group of dimension `dim', grouping the model entities with"]
-    #[doc = " tags `tags'. Return the tag of the physical group, equal to `tag' if `tag'"]
-    #[doc = " is positive, or a new tag if `tag' < 0."]
+    #[doc = " Add a physical group of dimension `dim`, grouping the model entities with"]
+    #[doc = " tags `tags`. Return the tag of the physical group, equal to `tag` if `tag`"]
+    #[doc = " is positive, or a new tag if `tag` < 0."]
     pub fn gmshModelAddPhysicalGroup(
         dim: ::std::os::raw::c_int,
         tags: *mut ::std::os::raw::c_int,
@@ -274,7 +274,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Set the name of the physical group of dimension `dim' and tag `tag'."]
+    #[doc = " Set the name of the physical group of dimension `dim` and tag `tag`."]
     pub fn gmshModelSetPhysicalName(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -283,7 +283,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the name of the physical group of dimension `dim' and tag `tag'."]
+    #[doc = " Get the name of the physical group of dimension `dim` and tag `tag`."]
     pub fn gmshModelGetPhysicalName(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -292,12 +292,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the boundary of the model entities `dimTags'. Return in `outDimTags'"]
-    #[doc = " the boundary of the individual entities (if `combined' is false) or the"]
+    #[doc = " Get the boundary of the model entities `dimTags`. Return in `outDimTags`"]
+    #[doc = " the boundary of the individual entities (if `combined` is false) or the"]
     #[doc = " boundary of the combined geometrical shape formed by all input entities (if"]
-    #[doc = " `combined' is true). Return tags multiplied by the sign of the boundary"]
-    #[doc = " entity if `oriented' is true. Apply the boundary operator recursively down"]
-    #[doc = " to dimension 0 (i.e. to points) if `recursive' is true."]
+    #[doc = " `combined` is true). Return tags multiplied by the sign of the boundary"]
+    #[doc = " entity if `oriented` is true. Apply the boundary operator recursively down"]
+    #[doc = " to dimension 0 (i.e. to points) if `recursive` is true."]
     pub fn gmshModelGetBoundary(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -311,8 +311,8 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the model entities in the bounding box defined by the two points"]
-    #[doc = " (`xmin', `ymin', `zmin') and (`xmax', `ymax', `zmax'). If `dim' is >= 0,"]
-    #[doc = " return only the entities of the specified dimension (e.g. points if `dim'"]
+    #[doc = " (`xmin`, `ymin`, `zmin`) and (`xmax`, `ymax`, `zmax`). If `dim` is >= 0,"]
+    #[doc = " return only the entities of the specified dimension (e.g. points if `dim`"]
     #[doc = " == 0)."]
     pub fn gmshModelGetEntitiesInBoundingBox(
         xmin: f64,
@@ -328,8 +328,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the bounding box (`xmin', `ymin', `zmin'), (`xmax', `ymax', `zmax') of"]
-    #[doc = " the model entity of dimension `dim' and tag `tag'. If `dim' and `tag' are"]
+    #[doc = " Get the bounding box (`xmin`, `ymin`, `zmin`), (`xmax`, `ymax`, `zmax`) of"]
+    #[doc = " the model entity of dimension `dim` and tag `tag`. If `dim` and `tag` are"]
     #[doc = " negative, get the bounding box of the whole model."]
     pub fn gmshModelGetBoundingBox(
         dim: ::std::os::raw::c_int,
@@ -348,11 +348,11 @@ extern "C" {
     pub fn gmshModelGetDimension(ierr: *mut ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a discrete model entity (defined by a mesh) of dimension `dim' in the"]
-    #[doc = " current model. Return the tag of the new discrete entity, equal to `tag' if"]
-    #[doc = " `tag' is positive, or a new tag if `tag' < 0. `boundary' specifies the tags"]
+    #[doc = " Add a discrete model entity (defined by a mesh) of dimension `dim` in the"]
+    #[doc = " current model. Return the tag of the new discrete entity, equal to `tag` if"]
+    #[doc = " `tag` is positive, or a new tag if `tag` < 0. `boundary` specifies the tags"]
     #[doc = " of the entities on the boundary of the discrete entity, if any. Specifying"]
-    #[doc = " `boundary' allows Gmsh to construct the topology of the overall model."]
+    #[doc = " `boundary` allows Gmsh to construct the topology of the overall model."]
     pub fn gmshModelAddDiscreteEntity(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -362,7 +362,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Remove the entities `dimTags' of the current model. If `recursive' is true,"]
+    #[doc = " Remove the entities `dimTags` of the current model. If `recursive` is true,"]
     #[doc = " remove all the entities on their boundaries, down to dimension 0."]
     pub fn gmshModelRemoveEntities(
         dimTags: *mut ::std::os::raw::c_int,
@@ -372,14 +372,14 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Remove the entity name `name' from the current model."]
+    #[doc = " Remove the entity name `name` from the current model."]
     pub fn gmshModelRemoveEntityName(
         name: *const ::std::os::raw::c_char,
         ierr: *mut ::std::os::raw::c_int,
     );
 }
 extern "C" {
-    #[doc = " Remove the physical groups `dimTags' of the current model. If `dimTags' is"]
+    #[doc = " Remove the physical groups `dimTags` of the current model. If `dimTags` is"]
     #[doc = " empty, remove all groups."]
     pub fn gmshModelRemovePhysicalGroups(
         dimTags: *mut ::std::os::raw::c_int,
@@ -388,14 +388,14 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Remove the physical name `name' from the current model."]
+    #[doc = " Remove the physical name `name` from the current model."]
     pub fn gmshModelRemovePhysicalName(
         name: *const ::std::os::raw::c_char,
         ierr: *mut ::std::os::raw::c_int,
     );
 }
 extern "C" {
-    #[doc = " Get the type of the entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the type of the entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelGetType(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -404,9 +404,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " In a partitioned model, get the parent of the entity of dimension `dim' and"]
-    #[doc = " tag `tag', i.e. from which the entity is a part of, if any. `parentDim' and"]
-    #[doc = " `parentTag' are set to -1 if the entity has no parent."]
+    #[doc = " In a partitioned model, get the parent of the entity of dimension `dim` and"]
+    #[doc = " tag `tag`, i.e. from which the entity is a part of, if any. `parentDim` and"]
+    #[doc = " `parentTag` are set to -1 if the entity has no parent."]
     pub fn gmshModelGetParent(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -427,13 +427,13 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Evaluate the parametrization of the entity of dimension `dim' and tag `tag'"]
-    #[doc = " at the parametric coordinates `parametricCoord'. Only valid for `dim' equal"]
-    #[doc = " to 0 (with empty `parametricCoord'), 1 (with `parametricCoord' containing"]
-    #[doc = " parametric coordinates on the curve) or 2 (with `parametricCoord'"]
+    #[doc = " Evaluate the parametrization of the entity of dimension `dim` and tag `tag`"]
+    #[doc = " at the parametric coordinates `parametricCoord`. Only valid for `dim` equal"]
+    #[doc = " to 0 (with empty `parametricCoord`), 1 (with `parametricCoord` containing"]
+    #[doc = " parametric coordinates on the curve) or 2 (with `parametricCoord`"]
     #[doc = " containing pairs of u, v parametric coordinates on the surface,"]
     #[doc = " concatenated: [p1u, p1v, p2u, ...]). Return triplets of x, y, z coordinates"]
-    #[doc = " in `points', concatenated: [p1x, p1y, p1z, p2x, ...]."]
+    #[doc = " in `points`, concatenated: [p1x, p1y, p1z, p2x, ...]."]
     pub fn gmshModelGetValue(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -446,12 +446,12 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Evaluate the derivative of the parametrization of the entity of dimension"]
-    #[doc = " `dim' and tag `tag' at the parametric coordinates `parametricCoord'. Only"]
-    #[doc = " valid for `dim' equal to 1 (with `parametricCoord' containing parametric"]
-    #[doc = " coordinates on the curve) or 2 (with `parametricCoord' containing pairs of"]
+    #[doc = " `dim` and tag `tag` at the parametric coordinates `parametricCoord`. Only"]
+    #[doc = " valid for `dim` equal to 1 (with `parametricCoord` containing parametric"]
+    #[doc = " coordinates on the curve) or 2 (with `parametricCoord` containing pairs of"]
     #[doc = " u, v parametric coordinates on the surface, concatenated: [p1u, p1v, p2u,"]
-    #[doc = " ...]). For `dim' equal to 1 return the x, y, z components of the derivative"]
-    #[doc = " with respect to u [d1ux, d1uy, d1uz, d2ux, ...]; for `dim' equal to 2"]
+    #[doc = " ...]). For `dim` equal to 1 return the x, y, z components of the derivative"]
+    #[doc = " with respect to u [d1ux, d1uy, d1uz, d2ux, ...]; for `dim` equal to 2"]
     #[doc = " return the x, y, z components of the derivate with respect to u and v:"]
     #[doc = " [d1ux, d1uy, d1uz, d1vx, d1vy, d1vz, d2ux, ...]."]
     pub fn gmshModelGetDerivative(
@@ -465,10 +465,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Evaluate the (maximum) curvature of the entity of dimension `dim' and tag"]
-    #[doc = " `tag' at the parametric coordinates `parametricCoord'. Only valid for `dim'"]
-    #[doc = " equal to 1 (with `parametricCoord' containing parametric coordinates on the"]
-    #[doc = " curve) or 2 (with `parametricCoord' containing pairs of u, v parametric"]
+    #[doc = " Evaluate the (maximum) curvature of the entity of dimension `dim` and tag"]
+    #[doc = " `tag` at the parametric coordinates `parametricCoord`. Only valid for `dim`"]
+    #[doc = " equal to 1 (with `parametricCoord` containing parametric coordinates on the"]
+    #[doc = " curve) or 2 (with `parametricCoord` containing pairs of u, v parametric"]
     #[doc = " coordinates on the surface, concatenated: [p1u, p1v, p2u, ...])."]
     pub fn gmshModelGetCurvature(
         dim: ::std::os::raw::c_int,
@@ -481,9 +481,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Evaluate the principal curvatures of the surface with tag `tag' at the"]
-    #[doc = " parametric coordinates `parametricCoord', as well as their respective"]
-    #[doc = " directions. `parametricCoord' are given by pair of u and v coordinates,"]
+    #[doc = " Evaluate the principal curvatures of the surface with tag `tag` at the"]
+    #[doc = " parametric coordinates `parametricCoord`, as well as their respective"]
+    #[doc = " directions. `parametricCoord` are given by pair of u and v coordinates,"]
     #[doc = " concatenated: [p1u, p1v, p2u, ...]."]
     pub fn gmshModelGetPrincipalCurvatures(
         tag: ::std::os::raw::c_int,
@@ -501,9 +501,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the normal to the surface with tag `tag' at the parametric coordinates"]
-    #[doc = " `parametricCoord'. `parametricCoord' are given by pairs of u and v"]
-    #[doc = " coordinates, concatenated: [p1u, p1v, p2u, ...]. `normals' are returned as"]
+    #[doc = " Get the normal to the surface with tag `tag` at the parametric coordinates"]
+    #[doc = " `parametricCoord`. `parametricCoord` are given by pairs of u and v"]
+    #[doc = " coordinates, concatenated: [p1u, p1v, p2u, ...]. `normals` are returned as"]
     #[doc = " triplets of x, y, z components, concatenated: [n1x, n1y, n1z, n2x, ...]."]
     pub fn gmshModelGetNormal(
         tag: ::std::os::raw::c_int,
@@ -515,8 +515,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the visibility of the model entities `dimTags' to `value'. Apply the"]
-    #[doc = " visibility setting recursively if `recursive' is true."]
+    #[doc = " Set the visibility of the model entities `dimTags` to `value`. Apply the"]
+    #[doc = " visibility setting recursively if `recursive` is true."]
     pub fn gmshModelSetVisibility(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -526,7 +526,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the visibility of the model entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the visibility of the model entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelGetVisibility(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -535,9 +535,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the color of the model entities `dimTags' to the RGBA value (`r', `g',"]
-    #[doc = " `b', `a'), where `r', `g', `b' and `a' should be integers between 0 and"]
-    #[doc = " 255. Apply the color setting recursively if `recursive' is true."]
+    #[doc = " Set the color of the model entities `dimTags` to the RGBA value (`r`, `g`,"]
+    #[doc = " `b`, `a`), where `r`, `g`, `b` and `a` should be integers between 0 and"]
+    #[doc = " 255. Apply the color setting recursively if `recursive` is true."]
     pub fn gmshModelSetColor(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -550,7 +550,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the color of the model entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the color of the model entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelGetColor(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -562,7 +562,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the `x', `y', `z' coordinates of a geometrical point."]
+    #[doc = " Set the `x`, `y`, `z` coordinates of a geometrical point."]
     pub fn gmshModelSetCoordinates(
         tag: ::std::os::raw::c_int,
         x: f64,
@@ -572,11 +572,11 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Generate a mesh of the current model, up to dimension `dim' (0, 1, 2 or 3)."]
+    #[doc = " Generate a mesh of the current model, up to dimension `dim` (0, 1, 2 or 3)."]
     pub fn gmshModelMeshGenerate(dim: ::std::os::raw::c_int, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Partition the mesh of the current model into `numPart' partitions."]
+    #[doc = " Partition the mesh of the current model into `numPart` partitions."]
     pub fn gmshModelMeshPartition(numPart: ::std::os::raw::c_int, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
@@ -584,10 +584,10 @@ extern "C" {
     pub fn gmshModelMeshUnpartition(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Optimize the mesh of the current model using `method' (empty for default"]
+    #[doc = " Optimize the mesh of the current model using `method` (empty for default"]
     #[doc = " tetrahedral mesh optimizer, \"Netgen\" for Netgen optimizer, \"HighOrder\" for"]
     #[doc = " direct high-order mesh optimizer, \"HighOrderElastic\" for high-order elastic"]
-    #[doc = " smoother). If `force' is set apply the optimization also to discrete"]
+    #[doc = " smoother). If `force` is set apply the optimization also to discrete"]
     #[doc = " entities."]
     pub fn gmshModelMeshOptimize(
         method: *const ::std::os::raw::c_char,
@@ -608,7 +608,7 @@ extern "C" {
     pub fn gmshModelMeshSmooth(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Set the order of the elements in the mesh of the current model to `order'."]
+    #[doc = " Set the order of the elements in the mesh of the current model to `order`."]
     pub fn gmshModelMeshSetOrder(order: ::std::os::raw::c_int, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
@@ -634,18 +634,18 @@ extern "C" {
     pub fn gmshModelMeshClear(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Get the nodes classified on the entity of dimension `dim' and tag `tag'. If"]
-    #[doc = " `tag' < 0, get the nodes for all entities of dimension `dim'. If `dim' and"]
-    #[doc = " `tag' are negative, get all the nodes in the mesh. `nodeTags' contains the"]
-    #[doc = " node tags (their unique, strictly positive identification numbers). `coord'"]
-    #[doc = " is a vector of length 3 times the length of `nodeTags' that contains the x,"]
+    #[doc = " Get the nodes classified on the entity of dimension `dim` and tag `tag`. If"]
+    #[doc = " `tag` < 0, get the nodes for all entities of dimension `dim`. If `dim` and"]
+    #[doc = " `tag` are negative, get all the nodes in the mesh. `nodeTags` contains the"]
+    #[doc = " node tags (their unique, strictly positive identification numbers). `coord`"]
+    #[doc = " is a vector of length 3 times the length of `nodeTags` that contains the x,"]
     #[doc = " y, z coordinates of the nodes, concatenated: [n1x, n1y, n1z, n2x, ...]. If"]
-    #[doc = " `dim' >= 0 and `returnParamtricCoord' is set, `parametricCoord' contains"]
+    #[doc = " `dim` >= 0 and `returnParamtricCoord` is set, `parametricCoord` contains"]
     #[doc = " the parametric coordinates ([u1, u2, ...] or [u1, v1, u2, ...]) of the"]
-    #[doc = " nodes, if available. The length of `parametricCoord' can be 0 or `dim'"]
-    #[doc = " times the length of `nodeTags'. If `includeBoundary' is set, also return"]
+    #[doc = " nodes, if available. The length of `parametricCoord` can be 0 or `dim`"]
+    #[doc = " times the length of `nodeTags`. If `includeBoundary` is set, also return"]
     #[doc = " the nodes classified on the boundary of the entity (which will be"]
-    #[doc = " reparametrized on the entity if `dim' >= 0 in order to compute their"]
+    #[doc = " reparametrized on the entity if `dim` >= 0 in order to compute their"]
     #[doc = " parametric coordinates)."]
     pub fn gmshModelMeshGetNodes(
         nodeTags: *mut *mut usize,
@@ -662,8 +662,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the nodes classified on the entity of tag `tag', for all the elements"]
-    #[doc = " of type `elementType'. The other arguments are treated as in `getNodes'."]
+    #[doc = " Get the nodes classified on the entity of tag `tag`, for all the elements"]
+    #[doc = " of type `elementType`. The other arguments are treated as in `getNodes`."]
     pub fn gmshModelMeshGetNodesByElementType(
         elementType: ::std::os::raw::c_int,
         nodeTags: *mut *mut usize,
@@ -679,7 +679,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the coordinates and the parametric coordinates (if any) of the node"]
-    #[doc = " with tag `tag'. This is a sometimes useful but inefficient way of accessing"]
+    #[doc = " with tag `tag`. This is a sometimes useful but inefficient way of accessing"]
     #[doc = " nodes, as it relies on a cache stored in the model. For large meshes all"]
     #[doc = " the nodes in the model should be numbered in a continuous sequence of tags"]
     #[doc = " from 1 to N to maintain reasonable performance (in this case the internal"]
@@ -702,8 +702,8 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the nodes from all the elements belonging to the physical group of"]
-    #[doc = " dimension `dim' and tag `tag'. `nodeTags' contains the node tags; `coord'"]
-    #[doc = " is a vector of length 3 times the length of `nodeTags' that contains the x,"]
+    #[doc = " dimension `dim` and tag `tag`. `nodeTags` contains the node tags; `coord`"]
+    #[doc = " is a vector of length 3 times the length of `nodeTags` that contains the x,"]
     #[doc = " y, z coordinates of the nodes, concatenated: [n1x, n1y, n1z, n2x, ...]."]
     pub fn gmshModelMeshGetNodesForPhysicalGroup(
         dim: ::std::os::raw::c_int,
@@ -716,14 +716,14 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add nodes classified on the model entity of dimension `dim' and tag `tag'."]
-    #[doc = " `nodeTags' contains the node tags (their unique, strictly positive"]
-    #[doc = " identification numbers). `coord' is a vector of length 3 times the length"]
-    #[doc = " of `nodeTags' that contains the x, y, z coordinates of the nodes,"]
-    #[doc = " concatenated: [n1x, n1y, n1z, n2x, ...]. The optional `parametricCoord'"]
+    #[doc = " Add nodes classified on the model entity of dimension `dim` and tag `tag`."]
+    #[doc = " `nodeTags` contains the node tags (their unique, strictly positive"]
+    #[doc = " identification numbers). `coord` is a vector of length 3 times the length"]
+    #[doc = " of `nodeTags` that contains the x, y, z coordinates of the nodes,"]
+    #[doc = " concatenated: [n1x, n1y, n1z, n2x, ...]. The optional `parametricCoord`"]
     #[doc = " vector contains the parametric coordinates of the nodes, if any. The length"]
-    #[doc = " of `parametricCoord' can be 0 or `dim' times the length of `nodeTags'. If"]
-    #[doc = " the `nodeTags' vector is empty, new tags are automatically assigned to the"]
+    #[doc = " of `parametricCoord` can be 0 or `dim` times the length of `nodeTags`. If"]
+    #[doc = " the `nodeTags` vector is empty, new tags are automatically assigned to the"]
     #[doc = " nodes."]
     pub fn gmshModelMeshAddNodes(
         dim: ::std::os::raw::c_int,
@@ -745,9 +745,9 @@ extern "C" {
     pub fn gmshModelMeshReclassifyNodes(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Relocate the nodes classified on the entity of dimension `dim' and tag"]
-    #[doc = " `tag' using their parametric coordinates. If `tag' < 0, relocate the nodes"]
-    #[doc = " for all entities of dimension `dim'. If `dim' and `tag' are negative,"]
+    #[doc = " Relocate the nodes classified on the entity of dimension `dim` and tag"]
+    #[doc = " `tag` using their parametric coordinates. If `tag` < 0, relocate the nodes"]
+    #[doc = " for all entities of dimension `dim`. If `dim` and `tag` are negative,"]
     #[doc = " relocate all the nodes in the mesh."]
     pub fn gmshModelMeshRelocateNodes(
         dim: ::std::os::raw::c_int,
@@ -756,15 +756,15 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the elements classified on the entity of dimension `dim' and tag `tag'."]
-    #[doc = " If `tag' < 0, get the elements for all entities of dimension `dim'. If"]
-    #[doc = " `dim' and `tag' are negative, get all the elements in the mesh."]
-    #[doc = " `elementTypes' contains the MSH types of the elements (e.g. `2' for 3-node"]
-    #[doc = " triangles: see `getElementProperties' to obtain the properties for a given"]
-    #[doc = " element type). `elementTags' is a vector of the same length as"]
-    #[doc = " `elementTypes'; each entry is a vector containing the tags (unique,"]
+    #[doc = " Get the elements classified on the entity of dimension `dim` and tag `tag`."]
+    #[doc = " If `tag` < 0, get the elements for all entities of dimension `dim`. If"]
+    #[doc = " `dim` and `tag` are negative, get all the elements in the mesh."]
+    #[doc = " `elementTypes` contains the MSH types of the elements (e.g. `2` for 3-node"]
+    #[doc = " triangles: see `getElementProperties` to obtain the properties for a given"]
+    #[doc = " element type). `elementTags` is a vector of the same length as"]
+    #[doc = " `elementTypes`; each entry is a vector containing the tags (unique,"]
     #[doc = " strictly positive identifiers) of the elements of the corresponding type."]
-    #[doc = " `nodeTags' is also a vector of the same length as `elementTypes'; each"]
+    #[doc = " `nodeTags` is also a vector of the same length as `elementTypes`; each"]
     #[doc = " entry is a vector of length equal to the number of elements of the given"]
     #[doc = " type times the number N of nodes for this type of element, that contains"]
     #[doc = " the node tags of all the elements of the given type, concatenated: [e1n1,"]
@@ -784,7 +784,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the type and node tags of the element with tag `tag'. This is a"]
+    #[doc = " Get the type and node tags of the element with tag `tag`. This is a"]
     #[doc = " sometimes useful but inefficient way of accessing elements, as it relies on"]
     #[doc = " a cache stored in the model. For large meshes all the elements in the model"]
     #[doc = " should be numbered in a continuous sequence of tags from 1 to N to maintain"]
@@ -799,12 +799,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Search the mesh for an element located at coordinates (`x', `y', `z'). This"]
+    #[doc = " Search the mesh for an element located at coordinates (`x`, `y`, `z`). This"]
     #[doc = " is a sometimes useful but inefficient way of accessing elements, as it"]
     #[doc = " relies on a search in a spatial octree. If an element is found, return its"]
-    #[doc = " tag, type and node tags, as well as the local coordinates (`u', `v', `w')"]
-    #[doc = " within the element corresponding to search location. If `dim' is >= 0, only"]
-    #[doc = " search for elements of the given dimension. If `strict' is not set, use a"]
+    #[doc = " tag, type and node tags, as well as the local coordinates (`u`, `v`, `w`)"]
+    #[doc = " within the element corresponding to search location. If `dim` is >= 0, only"]
+    #[doc = " search for elements of the given dimension. If `strict` is not set, use a"]
     #[doc = " tolerance to find elements near the search location."]
     pub fn gmshModelMeshGetElementByCoordinates(
         x: f64,
@@ -823,9 +823,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the types of elements in the entity of dimension `dim' and tag `tag'."]
-    #[doc = " If `tag' < 0, get the types for all entities of dimension `dim'. If `dim'"]
-    #[doc = " and `tag' are negative, get all the types in the mesh."]
+    #[doc = " Get the types of elements in the entity of dimension `dim` and tag `tag`."]
+    #[doc = " If `tag` < 0, get the types for all entities of dimension `dim`. If `dim`"]
+    #[doc = " and `tag` are negative, get all the types in the mesh."]
     pub fn gmshModelMeshGetElementTypes(
         elementTypes: *mut *mut ::std::os::raw::c_int,
         elementTypes_n: *mut usize,
@@ -835,9 +835,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Return an element type given its family name `familyName' (\"point\", \"line\","]
+    #[doc = " Return an element type given its family name `familyName` (\"point\", \"line\","]
     #[doc = " \"triangle\", \"quadrangle\", \"tetrahedron\", \"pyramid\", \"prism\", \"hexahedron\")"]
-    #[doc = " and polynomial order `order'. If `serendip' is true, return the"]
+    #[doc = " and polynomial order `order`. If `serendip` is true, return the"]
     #[doc = " corresponding serendip element type (element without interior nodes)."]
     pub fn gmshModelMeshGetElementType(
         familyName: *const ::std::os::raw::c_char,
@@ -847,10 +847,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Get the properties of an element of type `elementType': its name"]
-    #[doc = " (`elementName'), dimension (`dim'), order (`order'), number of nodes"]
-    #[doc = " (`numNodes') and coordinates of the nodes in the reference element"]
-    #[doc = " (`nodeCoord' vector, of length `dim' times `numNodes')."]
+    #[doc = " Get the properties of an element of type `elementType`: its name"]
+    #[doc = " (`elementName`), dimension (`dim`), order (`order`), number of nodes"]
+    #[doc = " (`numNodes`) and coordinates of the nodes in the reference element"]
+    #[doc = " (`nodeCoord` vector, of length `dim` times `numNodes`)."]
     pub fn gmshModelMeshGetElementProperties(
         elementType: ::std::os::raw::c_int,
         elementName: *mut *mut ::std::os::raw::c_char,
@@ -863,15 +863,15 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the elements of type `elementType' classified on the entity of tag"]
-    #[doc = " `tag'. If `tag' < 0, get the elements for all entities. `elementTags' is a"]
+    #[doc = " Get the elements of type `elementType` classified on the entity of tag"]
+    #[doc = " `tag`. If `tag` < 0, get the elements for all entities. `elementTags` is a"]
     #[doc = " vector containing the tags (unique, strictly positive identifiers) of the"]
-    #[doc = " elements of the corresponding type. `nodeTags' is a vector of length equal"]
+    #[doc = " elements of the corresponding type. `nodeTags` is a vector of length equal"]
     #[doc = " to the number of elements of the given type times the number N of nodes for"]
     #[doc = " this type of element, that contains the node tags of all the elements of"]
     #[doc = " the given type, concatenated: [e1n1, e1n2, ..., e1nN, e2n1, ...]. If"]
-    #[doc = " `numTasks' > 1, only compute and return the part of the data indexed by"]
-    #[doc = " `task'."]
+    #[doc = " `numTasks` > 1, only compute and return the part of the data indexed by"]
+    #[doc = " `task`."]
     pub fn gmshModelMeshGetElementsByType(
         elementType: ::std::os::raw::c_int,
         elementTags: *mut *mut usize,
@@ -885,7 +885,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Preallocate data before calling `getElementsByType' with `numTasks' > 1."]
+    #[doc = " Preallocate data before calling `getElementsByType` with `numTasks` > 1."]
     #[doc = " For C and C++ only."]
     pub fn gmshModelMeshPreallocateElementsByType(
         elementType: ::std::os::raw::c_int,
@@ -900,12 +900,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add elements classified on the entity of dimension `dim' and tag `tag'."]
-    #[doc = " `types' contains the MSH types of the elements (e.g. `2' for 3-node"]
-    #[doc = " triangles: see the Gmsh reference manual). `elementTags' is a vector of the"]
-    #[doc = " same length as `types'; each entry is a vector containing the tags (unique,"]
+    #[doc = " Add elements classified on the entity of dimension `dim` and tag `tag`."]
+    #[doc = " `types` contains the MSH types of the elements (e.g. `2` for 3-node"]
+    #[doc = " triangles: see the Gmsh reference manual). `elementTags` is a vector of the"]
+    #[doc = " same length as `types`; each entry is a vector containing the tags (unique,"]
     #[doc = " strictly positive identifiers) of the elements of the corresponding type."]
-    #[doc = " `nodeTags' is also a vector of the same length as `types'; each entry is a"]
+    #[doc = " `nodeTags` is also a vector of the same length as `types`; each entry is a"]
     #[doc = " vector of length equal to the number of elements of the given type times"]
     #[doc = " the number N of nodes per element, that contains the node tags of all the"]
     #[doc = " elements of the given type, concatenated: [e1n1, e1n2, ..., e1nN, e2n1,"]
@@ -925,12 +925,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add elements of type `elementType' classified on the entity of tag `tag'."]
-    #[doc = " `elementTags' contains the tags (unique, strictly positive identifiers) of"]
-    #[doc = " the elements of the corresponding type. `nodeTags' is a vector of length"]
+    #[doc = " Add elements of type `elementType` classified on the entity of tag `tag`."]
+    #[doc = " `elementTags` contains the tags (unique, strictly positive identifiers) of"]
+    #[doc = " the elements of the corresponding type. `nodeTags` is a vector of length"]
     #[doc = " equal to the number of elements times the number N of nodes per element,"]
     #[doc = " that contains the node tags of all the elements, concatenated: [e1n1, e1n2,"]
-    #[doc = " ..., e1nN, e2n1, ...]. If the `elementTag' vector is empty, new tags are"]
+    #[doc = " ..., e1nN, e2n1, ...]. If the `elementTag` vector is empty, new tags are"]
     #[doc = " automatically assigned to the elements."]
     pub fn gmshModelMeshAddElementsByType(
         tag: ::std::os::raw::c_int,
@@ -944,11 +944,11 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the numerical quadrature information for the given element type"]
-    #[doc = " `elementType' and integration rule `integrationType' (e.g. \"Gauss4\" for a"]
+    #[doc = " `elementType` and integration rule `integrationType` (e.g. \"Gauss4\" for a"]
     #[doc = " Gauss quadrature suited for integrating 4th order polynomials)."]
-    #[doc = " `integrationPoints' contains the u, v, w coordinates of the G integration"]
+    #[doc = " `integrationPoints` contains the u, v, w coordinates of the G integration"]
     #[doc = " points in the reference element: [g1u, g1v, g1w, ..., gGu, gGv, gGw]."]
-    #[doc = " `integrationWeigths' contains the associated weights: [g1q, ..., gGq]."]
+    #[doc = " `integrationWeigths` contains the associated weights: [g1q, ..., gGq]."]
     pub fn gmshModelMeshGetIntegrationPoints(
         elementType: ::std::os::raw::c_int,
         integrationType: *const ::std::os::raw::c_char,
@@ -960,20 +960,20 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the Jacobians of all the elements of type `elementType' classified on"]
-    #[doc = " the entity of tag `tag', at the G integration points `integrationPoints'"]
+    #[doc = " Get the Jacobians of all the elements of type `elementType` classified on"]
+    #[doc = " the entity of tag `tag`, at the G integration points `integrationPoints`"]
     #[doc = " given as concatenated triplets of coordinates in the reference element"]
     #[doc = " [g1u, g1v, g1w, ..., gGu, gGv, gGw]. Data is returned by element, with"]
-    #[doc = " elements in the same order as in `getElements' and `getElementsByType'."]
-    #[doc = " `jacobians' contains for each element the 9 entries of the 3x3 Jacobian"]
+    #[doc = " elements in the same order as in `getElements` and `getElementsByType`."]
+    #[doc = " `jacobians` contains for each element the 9 entries of the 3x3 Jacobian"]
     #[doc = " matrix at each integration point. The matrix is returned by column:"]
     #[doc = " [e1g1Jxu, e1g1Jyu, e1g1Jzu, e1g1Jxv, ..., e1g1Jzw, e1g2Jxu, ..., e1gGJzw,"]
-    #[doc = " e2g1Jxu, ...], with Jxu=dx/du, Jyu=dy/du, etc. `determinants' contains for"]
+    #[doc = " e2g1Jxu, ...], with Jxu=dx/du, Jyu=dy/du, etc. `determinants` contains for"]
     #[doc = " each element the determinant of the Jacobian matrix at each integration"]
-    #[doc = " point: [e1g1, e1g2, ... e1gG, e2g1, ...]. `points' contains for each"]
-    #[doc = " element the x, y, z coordinates of the integration points. If `tag' < 0,"]
-    #[doc = " get the Jacobian data for all entities. If `numTasks' > 1, only compute and"]
-    #[doc = " return the part of the data indexed by `task'."]
+    #[doc = " point: [e1g1, e1g2, ... e1gG, e2g1, ...]. `points` contains for each"]
+    #[doc = " element the x, y, z coordinates of the integration points. If `tag` < 0,"]
+    #[doc = " get the Jacobian data for all entities. If `numTasks` > 1, only compute and"]
+    #[doc = " return the part of the data indexed by `task`."]
     pub fn gmshModelMeshGetJacobians(
         elementType: ::std::os::raw::c_int,
         integrationPoints: *mut f64,
@@ -991,7 +991,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Preallocate data before calling `getJacobians' with `numTasks' > 1. For C"]
+    #[doc = " Preallocate data before calling `getJacobians` with `numTasks` > 1. For C"]
     #[doc = " and C++ only."]
     pub fn gmshModelMeshPreallocateJacobians(
         elementType: ::std::os::raw::c_int,
@@ -1010,13 +1010,13 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the basis functions of the element of type `elementType' at the"]
-    #[doc = " integration points `integrationPoints' (given as concatenated triplets of"]
+    #[doc = " Get the basis functions of the element of type `elementType` at the"]
+    #[doc = " integration points `integrationPoints` (given as concatenated triplets of"]
     #[doc = " coordinates in the reference element [g1u, g1v, g1w, ..., gGu, gGv, gGw]),"]
-    #[doc = " for the function space `functionSpaceType' (e.g. \"Lagrange\" or"]
+    #[doc = " for the function space `functionSpaceType` (e.g. \"Lagrange\" or"]
     #[doc = " \"GradLagrange\" for Lagrange basis functions or their gradient, in the u, v,"]
-    #[doc = " w coordinates of the reference element). `numComponents' returns the number"]
-    #[doc = " C of components of a basis function. `basisFunctions' returns the value of"]
+    #[doc = " w coordinates of the reference element). `numComponents` returns the number"]
+    #[doc = " C of components of a basis function. `basisFunctions` returns the value of"]
     #[doc = " the N basis functions at the integration points, i.e. [g1f1, g1f2, ...,"]
     #[doc = " g1fN, g2f1, ...] when C == 1 or [g1f1u, g1f1v, g1f1w, g1f2u, ..., g1fNw,"]
     #[doc = " g2f1u, ...] when C == 3."]
@@ -1033,14 +1033,14 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Get the element-dependent basis functions of the elements of type"]
-    #[doc = " `elementType' in the entity of tag `tag'at the integration points"]
-    #[doc = " `integrationPoints' (given as concatenated triplets of coordinates in the"]
+    #[doc = " `elementType` in the entity of tag `tag`at the integration points"]
+    #[doc = " `integrationPoints` (given as concatenated triplets of coordinates in the"]
     #[doc = " reference element [g1u, g1v, g1w, ..., gGu, gGv, gGw]), for the function"]
-    #[doc = " space `functionSpaceType' (e.g. \"H1Legendre3\" or \"GradH1Legendre3\" for 3rd"]
+    #[doc = " space `functionSpaceType` (e.g. \"H1Legendre3\" or \"GradH1Legendre3\" for 3rd"]
     #[doc = " order hierarchical H1 Legendre functions or their gradient, in the u, v, w"]
-    #[doc = " coordinates of the reference elements). `numComponents' returns the number"]
-    #[doc = " C of components of a basis function. `numBasisFunctions' returns the number"]
-    #[doc = " N of basis functions per element. `basisFunctions' returns the value of the"]
+    #[doc = " coordinates of the reference elements). `numComponents` returns the number"]
+    #[doc = " C of components of a basis function. `numBasisFunctions` returns the number"]
+    #[doc = " N of basis functions per element. `basisFunctions` returns the value of the"]
     #[doc = " basis functions at the integration points for each element: [e1g1f1,...,"]
     #[doc = " e1g1fN, e1g2f1,..., e2g1f1, ...] when C == 1 or [e1g1f1u, e1g1f1v,...,"]
     #[doc = " e1g1fNw, e1g2f1u,..., e2g1f1u, ...]. Warning: this is an experimental"]
@@ -1059,10 +1059,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Generate the `keys' for the elements of type `elementType' in the entity of"]
-    #[doc = " tag `tag', for the `functionSpaceType' function space. Each key uniquely"]
-    #[doc = " identifies a basis function in the function space. If `returnCoord' is set,"]
-    #[doc = " the `coord' vector contains the x, y, z coordinates locating basis"]
+    #[doc = " Generate the `keys` for the elements of type `elementType` in the entity of"]
+    #[doc = " tag `tag`, for the `functionSpaceType` function space. Each key uniquely"]
+    #[doc = " identifies a basis function in the function space. If `returnCoord` is set,"]
+    #[doc = " the `coord` vector contains the x, y, z coordinates locating basis"]
     #[doc = " functions for sorting purposes. Warning: this is an experimental feature"]
     #[doc = " and will probably change in a future release."]
     pub fn gmshModelMeshGetKeysForElements(
@@ -1078,10 +1078,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get information about the `keys'. `infoKeys' returns information about the"]
-    #[doc = " functions associated with the `keys'. `infoKeys[0].first' describes the"]
+    #[doc = " Get information about the `keys`. `infoKeys` returns information about the"]
+    #[doc = " functions associated with the `keys`. `infoKeys[0].first` describes the"]
     #[doc = " type of function (0 for  vertex function, 1 for edge function, 2 for face"]
-    #[doc = " function and 3 for bubble function). `infoKeys[0].second' gives the order"]
+    #[doc = " function and 3 for bubble function). `infoKeys[0].second` gives the order"]
     #[doc = " of the function associated with the key. Warning: this is an experimental"]
     #[doc = " feature and will probably change in a future release."]
     pub fn gmshModelMeshGetInformationForElements(
@@ -1095,20 +1095,20 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Precomputes the basis functions corresponding to `elementType'."]
+    #[doc = " Precomputes the basis functions corresponding to `elementType`."]
     pub fn gmshModelMeshPrecomputeBasisFunctions(
         elementType: ::std::os::raw::c_int,
         ierr: *mut ::std::os::raw::c_int,
     );
 }
 extern "C" {
-    #[doc = " Get the barycenters of all elements of type `elementType' classified on the"]
-    #[doc = " entity of tag `tag'. If `primary' is set, only the primary nodes of the"]
-    #[doc = " elements are taken into account for the barycenter calculation. If `fast'"]
+    #[doc = " Get the barycenters of all elements of type `elementType` classified on the"]
+    #[doc = " entity of tag `tag`. If `primary` is set, only the primary nodes of the"]
+    #[doc = " elements are taken into account for the barycenter calculation. If `fast`"]
     #[doc = " is set, the function returns the sum of the primary node coordinates"]
-    #[doc = " (without normalizing by the number of nodes). If `tag' < 0, get the"]
-    #[doc = " barycenters for all entities. If `numTasks' > 1, only compute and return"]
-    #[doc = " the part of the data indexed by `task'."]
+    #[doc = " (without normalizing by the number of nodes). If `tag` < 0, get the"]
+    #[doc = " barycenters for all entities. If `numTasks` > 1, only compute and return"]
+    #[doc = " the part of the data indexed by `task`."]
     pub fn gmshModelMeshGetBarycenters(
         elementType: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -1122,7 +1122,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Preallocate data before calling `getBarycenters' with `numTasks' > 1. For C"]
+    #[doc = " Preallocate data before calling `getBarycenters` with `numTasks` > 1. For C"]
     #[doc = " and C++ only."]
     pub fn gmshModelMeshPreallocateBarycenters(
         elementType: ::std::os::raw::c_int,
@@ -1133,14 +1133,14 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the nodes on the edges of all elements of type `elementType' classified"]
-    #[doc = " on the entity of tag `tag'. `nodeTags' contains the node tags of the edges"]
+    #[doc = " Get the nodes on the edges of all elements of type `elementType` classified"]
+    #[doc = " on the entity of tag `tag`. `nodeTags` contains the node tags of the edges"]
     #[doc = " for all the elements: [e1a1n1, e1a1n2, e1a2n1, ...]. Data is returned by"]
-    #[doc = " element, with elements in the same order as in `getElements' and"]
-    #[doc = " `getElementsByType'. If `primary' is set, only the primary (begin/end)"]
-    #[doc = " nodes of the edges are returned. If `tag' < 0, get the edge nodes for all"]
-    #[doc = " entities. If `numTasks' > 1, only compute and return the part of the data"]
-    #[doc = " indexed by `task'."]
+    #[doc = " element, with elements in the same order as in `getElements` and"]
+    #[doc = " `getElementsByType`. If `primary` is set, only the primary (begin/end)"]
+    #[doc = " nodes of the edges are returned. If `tag` < 0, get the edge nodes for all"]
+    #[doc = " entities. If `numTasks` > 1, only compute and return the part of the data"]
+    #[doc = " indexed by `task`."]
     pub fn gmshModelMeshGetElementEdgeNodes(
         elementType: ::std::os::raw::c_int,
         nodeTags: *mut *mut usize,
@@ -1153,15 +1153,15 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the nodes on the faces of type `faceType' (3 for triangular faces, 4"]
-    #[doc = " for quadrangular faces) of all elements of type `elementType' classified on"]
-    #[doc = " the entity of tag `tag'. `nodeTags' contains the node tags of the faces for"]
+    #[doc = " Get the nodes on the faces of type `faceType` (3 for triangular faces, 4"]
+    #[doc = " for quadrangular faces) of all elements of type `elementType` classified on"]
+    #[doc = " the entity of tag `tag`. `nodeTags` contains the node tags of the faces for"]
     #[doc = " all elements: [e1f1n1, ..., e1f1nFaceType, e1f2n1, ...]. Data is returned"]
-    #[doc = " by element, with elements in the same order as in `getElements' and"]
-    #[doc = " `getElementsByType'. If `primary' is set, only the primary (corner) nodes"]
-    #[doc = " of the faces are returned. If `tag' < 0, get the face nodes for all"]
-    #[doc = " entities. If `numTasks' > 1, only compute and return the part of the data"]
-    #[doc = " indexed by `task'."]
+    #[doc = " by element, with elements in the same order as in `getElements` and"]
+    #[doc = " `getElementsByType`. If `primary` is set, only the primary (corner) nodes"]
+    #[doc = " of the faces are returned. If `tag` < 0, get the face nodes for all"]
+    #[doc = " entities. If `numTasks` > 1, only compute and return the part of the data"]
+    #[doc = " indexed by `task`."]
     pub fn gmshModelMeshGetElementFaceNodes(
         elementType: ::std::os::raw::c_int,
         faceType: ::std::os::raw::c_int,
@@ -1175,8 +1175,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the ghost elements `elementTags' and their associated `partitions'"]
-    #[doc = " stored in the ghost entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the ghost elements `elementTags` and their associated `partitions`"]
+    #[doc = " stored in the ghost entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelMeshGetGhostElements(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -1188,7 +1188,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a mesh size constraint on the model entities `dimTags'. Currently only"]
+    #[doc = " Set a mesh size constraint on the model entities `dimTags`. Currently only"]
     #[doc = " entities of dimension 0 (points) are handled."]
     pub fn gmshModelMeshSetSize(
         dimTags: *mut ::std::os::raw::c_int,
@@ -1198,9 +1198,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a transfinite meshing constraint on the curve `tag', with `numNodes'"]
-    #[doc = " nodes distributed according to `meshType' and `coef'. Currently supported"]
-    #[doc = " types are \"Progression\" (geometrical progression with power `coef') and"]
+    #[doc = " Set a transfinite meshing constraint on the curve `tag`, with `numNodes`"]
+    #[doc = " nodes distributed according to `meshType` and `coef`. Currently supported"]
+    #[doc = " types are \"Progression\" (geometrical progression with power `coef`) and"]
     #[doc = " \"Bump\" (refinement toward both extremities of the curve)."]
     pub fn gmshModelMeshSetTransfiniteCurve(
         tag: ::std::os::raw::c_int,
@@ -1211,10 +1211,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a transfinite meshing constraint on the surface `tag'. `arrangement'"]
+    #[doc = " Set a transfinite meshing constraint on the surface `tag`. `arrangement`"]
     #[doc = " describes the arrangement of the triangles when the surface is not flagged"]
     #[doc = " as recombined: currently supported values are \"Left\", \"Right\","]
-    #[doc = " \"AlternateLeft\" and \"AlternateRight\". `cornerTags' can be used to specify"]
+    #[doc = " \"AlternateLeft\" and \"AlternateRight\". `cornerTags` can be used to specify"]
     #[doc = " the (3 or 4) corners of the transfinite interpolation explicitly;"]
     #[doc = " specifying the corners explicitly is mandatory if the surface has more that"]
     #[doc = " 3 or 4 points on its boundary."]
@@ -1227,7 +1227,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a transfinite meshing constraint on the surface `tag'. `cornerTags' can"]
+    #[doc = " Set a transfinite meshing constraint on the surface `tag`. `cornerTags` can"]
     #[doc = " be used to specify the (6 or 8) corners of the transfinite interpolation"]
     #[doc = " explicitly."]
     pub fn gmshModelMeshSetTransfiniteVolume(
@@ -1239,7 +1239,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Set a recombination meshing constraint on the model entity of dimension"]
-    #[doc = " `dim' and tag `tag'. Currently only entities of dimension 2 (to recombine"]
+    #[doc = " `dim` and tag `tag`. Currently only entities of dimension 2 (to recombine"]
     #[doc = " triangles into quadrangles) are supported."]
     pub fn gmshModelMeshSetRecombine(
         dim: ::std::os::raw::c_int,
@@ -1248,8 +1248,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a smoothing meshing constraint on the model entity of dimension `dim'"]
-    #[doc = " and tag `tag'. `val' iterations of a Laplace smoother are applied."]
+    #[doc = " Set a smoothing meshing constraint on the model entity of dimension `dim`"]
+    #[doc = " and tag `tag`. `val` iterations of a Laplace smoother are applied."]
     pub fn gmshModelMeshSetSmoothing(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -1258,10 +1258,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a reverse meshing constraint on the model entity of dimension `dim' and"]
-    #[doc = " tag `tag'. If `val' is true, the mesh orientation will be reversed with"]
+    #[doc = " Set a reverse meshing constraint on the model entity of dimension `dim` and"]
+    #[doc = " tag `tag`. If `val` is true, the mesh orientation will be reversed with"]
     #[doc = " respect to the natural mesh orientation (i.e. the orientation consistent"]
-    #[doc = " with the orientation of the geometry). If `val' is false, the mesh is left"]
+    #[doc = " with the orientation of the geometry). If `val` is false, the mesh is left"]
     #[doc = " as-is."]
     pub fn gmshModelMeshSetReverse(
         dim: ::std::os::raw::c_int,
@@ -1271,7 +1271,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set meshing constraints on the bounding surfaces of the volume of tag `tag'"]
+    #[doc = " Set meshing constraints on the bounding surfaces of the volume of tag `tag`"]
     #[doc = " so that all surfaces are oriented with outward pointing normals. Currently"]
     #[doc = " only available with the OpenCASCADE kernel, as it relies on the STL"]
     #[doc = " triangulation."]
@@ -1281,10 +1281,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Embed the model entities of dimension `dim' and tags `tags' in the"]
-    #[doc = " (`inDim', `inTag') model entity. The dimension `dim' can 0, 1 or 2 and must"]
-    #[doc = " be strictly smaller than `inDim', which must be either 2 or 3. The embedded"]
-    #[doc = " entities should not be part of the boundary of the entity `inTag', whose"]
+    #[doc = " Embed the model entities of dimension `dim` and tags `tags` in the"]
+    #[doc = " (`inDim`, `inTag`) model entity. The dimension `dim` can 0, 1 or 2 and must"]
+    #[doc = " be strictly smaller than `inDim`, which must be either 2 or 3. The embedded"]
+    #[doc = " entities should not be part of the boundary of the entity `inTag`, whose"]
     #[doc = " mesh will conform to the mesh of the embedded entities."]
     pub fn gmshModelMeshEmbed(
         dim: ::std::os::raw::c_int,
@@ -1296,9 +1296,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Remove embedded entities from the model entities `dimTags'. if `dim' is >="]
+    #[doc = " Remove embedded entities from the model entities `dimTags`. if `dim` is >="]
     #[doc = " 0, only remove embedded entities of the given dimension (e.g. embedded"]
-    #[doc = " points if `dim' == 0)."]
+    #[doc = " points if `dim` == 0)."]
     pub fn gmshModelMeshRemoveEmbedded(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -1307,8 +1307,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Reorder the elements of type `elementType' classified on the entity of tag"]
-    #[doc = " `tag' according to `ordering'."]
+    #[doc = " Reorder the elements of type `elementType` classified on the entity of tag"]
+    #[doc = " `tag` according to `ordering`."]
     pub fn gmshModelMeshReorderElements(
         elementType: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -1326,10 +1326,10 @@ extern "C" {
     pub fn gmshModelMeshRenumberElements(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Set the meshes of the entities of dimension `dim' and tag `tags' as"]
-    #[doc = " periodic copies of the meshes of entities `tagsMaster', using the affine"]
-    #[doc = " transformation specified in `affineTransformation' (16 entries of a 4x4"]
-    #[doc = " matrix, by row). Currently only available for `dim' == 1 and `dim' == 2."]
+    #[doc = " Set the meshes of the entities of dimension `dim` and tag `tags` as"]
+    #[doc = " periodic copies of the meshes of entities `tagsMaster`, using the affine"]
+    #[doc = " transformation specified in `affineTransformation` (16 entries of a 4x4"]
+    #[doc = " matrix, by row). Currently only available for `dim` == 1 and `dim` == 2."]
     pub fn gmshModelMeshSetPeriodic(
         dim: ::std::os::raw::c_int,
         tags: *mut ::std::os::raw::c_int,
@@ -1342,9 +1342,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the master entity `tagMaster', the node tags `nodeTags' and their"]
-    #[doc = " corresponding master node tags `nodeTagsMaster', and the affine transform"]
-    #[doc = " `affineTransform' for the entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the master entity `tagMaster`, the node tags `nodeTags` and their"]
+    #[doc = " corresponding master node tags `nodeTagsMaster`, and the affine transform"]
+    #[doc = " `affineTransform` for the entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelMeshGetPeriodicNodes(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -1363,8 +1363,8 @@ extern "C" {
     pub fn gmshModelMeshRemoveDuplicateNodes(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Split (into two triangles) all quadrangles in surface `tag' whose quality"]
-    #[doc = " is lower than `quality'. If `tag' < 0, split quadrangles in all surfaces."]
+    #[doc = " Split (into two triangles) all quadrangles in surface `tag` whose quality"]
+    #[doc = " is lower than `quality`. If `tag` < 0, split quadrangles in all surfaces."]
     pub fn gmshModelMeshSplitQuadrangles(
         quality: f64,
         tag: ::std::os::raw::c_int,
@@ -1372,10 +1372,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Classify (\"color\") the surface mesh based on the angle threshold `angle'"]
+    #[doc = " Classify (\"color\") the surface mesh based on the angle threshold `angle`"]
     #[doc = " (in radians), and create new discrete surfaces, curves and points"]
-    #[doc = " accordingly. If `boundary' is set, also create discrete curves on the"]
-    #[doc = " boundary if the surface is open. If `forReparametrization' is set, create"]
+    #[doc = " accordingly. If `boundary` is set, also create discrete curves on the"]
+    #[doc = " boundary if the surface is open. If `forReparametrization` is set, create"]
     #[doc = " edges and surfaces that can be reparametrized using a single map."]
     pub fn gmshModelMeshClassifySurfaces(
         angle: f64,
@@ -1399,10 +1399,10 @@ extern "C" {
 extern "C" {
     #[doc = " Compute a basis representation for homology spaces after a mesh has been"]
     #[doc = " generated. The computation domain is given in a list of physical group tags"]
-    #[doc = " `domainTags'; if empty, the whole mesh is the domain. The computation"]
+    #[doc = " `domainTags`; if empty, the whole mesh is the domain. The computation"]
     #[doc = " subdomain for relative homology computation is given in a list of physical"]
-    #[doc = " group tags `subdomainTags'; if empty, absolute homology is computed. The"]
-    #[doc = " dimensions homology bases to be computed are given in the list `dim'; if"]
+    #[doc = " group tags `subdomainTags`; if empty, absolute homology is computed. The"]
+    #[doc = " dimensions homology bases to be computed are given in the list `dim`; if"]
     #[doc = " empty, all bases are computed. Resulting basis representation chains are"]
     #[doc = " stored as physical groups in the mesh."]
     pub fn gmshModelMeshComputeHomology(
@@ -1418,11 +1418,11 @@ extern "C" {
 extern "C" {
     #[doc = " Compute a basis representation for cohomology spaces after a mesh has been"]
     #[doc = " generated. The computation domain is given in a list of physical group tags"]
-    #[doc = " `domainTags'; if empty, the whole mesh is the domain. The computation"]
+    #[doc = " `domainTags`; if empty, the whole mesh is the domain. The computation"]
     #[doc = " subdomain for relative cohomology computation is given in a list of"]
-    #[doc = " physical group tags `subdomainTags'; if empty, absolute cohomology is"]
+    #[doc = " physical group tags `subdomainTags`; if empty, absolute cohomology is"]
     #[doc = " computed. The dimensions homology bases to be computed are given in the"]
-    #[doc = " list `dim'; if empty, all bases are computed. Resulting basis"]
+    #[doc = " list `dim`; if empty, all bases are computed. Resulting basis"]
     #[doc = " representation cochains are stored as physical groups in the mesh."]
     pub fn gmshModelMeshComputeCohomology(
         domainTags: *mut ::std::os::raw::c_int,
@@ -1435,7 +1435,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add a new mesh size field of type `fieldType'. If `tag' is positive, assign"]
+    #[doc = " Add a new mesh size field of type `fieldType`. If `tag` is positive, assign"]
     #[doc = " the tag explicitly; otherwise a new tag is assigned automatically. Return"]
     #[doc = " the field tag."]
     pub fn gmshModelMeshFieldAdd(
@@ -1445,11 +1445,11 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Remove the field with tag `tag'."]
+    #[doc = " Remove the field with tag `tag`."]
     pub fn gmshModelMeshFieldRemove(tag: ::std::os::raw::c_int, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Set the numerical option `option' to value `value' for field `tag'."]
+    #[doc = " Set the numerical option `option` to value `value` for field `tag`."]
     pub fn gmshModelMeshFieldSetNumber(
         tag: ::std::os::raw::c_int,
         option: *const ::std::os::raw::c_char,
@@ -1458,7 +1458,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the string option `option' to value `value' for field `tag'."]
+    #[doc = " Set the string option `option` to value `value` for field `tag`."]
     pub fn gmshModelMeshFieldSetString(
         tag: ::std::os::raw::c_int,
         option: *const ::std::os::raw::c_char,
@@ -1467,7 +1467,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the numerical list option `option' to value `value' for field `tag'."]
+    #[doc = " Set the numerical list option `option` to value `value` for field `tag`."]
     pub fn gmshModelMeshFieldSetNumbers(
         tag: ::std::os::raw::c_int,
         option: *const ::std::os::raw::c_char,
@@ -1477,14 +1477,14 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the field `tag' as the background mesh size field."]
+    #[doc = " Set the field `tag` as the background mesh size field."]
     pub fn gmshModelMeshFieldSetAsBackgroundMesh(
         tag: ::std::os::raw::c_int,
         ierr: *mut ::std::os::raw::c_int,
     );
 }
 extern "C" {
-    #[doc = " Set the field `tag' as a boundary layer size field."]
+    #[doc = " Set the field `tag` as a boundary layer size field."]
     pub fn gmshModelMeshFieldSetAsBoundaryLayer(
         tag: ::std::os::raw::c_int,
         ierr: *mut ::std::os::raw::c_int,
@@ -1492,10 +1492,10 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Add a geometrical point in the built-in CAD representation, at coordinates"]
-    #[doc = " (`x', `y', `z'). If `meshSize' is > 0, add a meshing constraint at that"]
-    #[doc = " point. If `tag' is positive, set the tag explicitly; otherwise a new tag is"]
+    #[doc = " (`x`, `y`, `z`). If `meshSize` is > 0, add a meshing constraint at that"]
+    #[doc = " point. If `tag` is positive, set the tag explicitly; otherwise a new tag is"]
     #[doc = " selected automatically. Return the tag of the point. (Note that the point"]
-    #[doc = " will be added in the current model only after `synchronize' is called. This"]
+    #[doc = " will be added in the current model only after `synchronize` is called. This"]
     #[doc = " behavior holds for all the entities added in the geo module.)"]
     pub fn gmshModelGeoAddPoint(
         x: f64,
@@ -1507,8 +1507,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a straight line segment between the two points with tags `startTag' and"]
-    #[doc = " `endTag'. If `tag' is positive, set the tag explicitly; otherwise a new tag"]
+    #[doc = " Add a straight line segment between the two points with tags `startTag` and"]
+    #[doc = " `endTag`. If `tag` is positive, set the tag explicitly; otherwise a new tag"]
     #[doc = " is selected automatically. Return the tag of the line."]
     pub fn gmshModelGeoAddLine(
         startTag: ::std::os::raw::c_int,
@@ -1519,9 +1519,9 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Add a circle arc (strictly smaller than Pi) between the two points with"]
-    #[doc = " tags `startTag' and `endTag', with center `centertag'. If `tag' is"]
+    #[doc = " tags `startTag` and `endTag`, with center `centertag`. If `tag` is"]
     #[doc = " positive, set the tag explicitly; otherwise a new tag is selected"]
-    #[doc = " automatically. If (`nx', `ny', `nz') != (0,0,0), explicitly set the plane"]
+    #[doc = " automatically. If (`nx`, `ny`, `nz`) != (0,0,0), explicitly set the plane"]
     #[doc = " of the circle arc. Return the tag of the circle arc."]
     pub fn gmshModelGeoAddCircleArc(
         startTag: ::std::os::raw::c_int,
@@ -1536,9 +1536,9 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Add an ellipse arc (strictly smaller than Pi) between the two points"]
-    #[doc = " `startTag' and `endTag', with center `centerTag' and major axis point"]
-    #[doc = " `majorTag'. If `tag' is positive, set the tag explicitly; otherwise a new"]
-    #[doc = " tag is selected automatically. If (`nx', `ny', `nz') != (0,0,0), explicitly"]
+    #[doc = " `startTag` and `endTag`, with center `centerTag` and major axis point"]
+    #[doc = " `majorTag`. If `tag` is positive, set the tag explicitly; otherwise a new"]
+    #[doc = " tag is selected automatically. If (`nx`, `ny`, `nz`) != (0,0,0), explicitly"]
     #[doc = " set the plane of the circle arc. Return the tag of the ellipse arc."]
     pub fn gmshModelGeoAddEllipseArc(
         startTag: ::std::os::raw::c_int,
@@ -1553,8 +1553,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a spline (Catmull-Rom) curve going through the points `pointTags'. If"]
-    #[doc = " `tag' is positive, set the tag explicitly; otherwise a new tag is selected"]
+    #[doc = " Add a spline (Catmull-Rom) curve going through the points `pointTags`. If"]
+    #[doc = " `tag` is positive, set the tag explicitly; otherwise a new tag is selected"]
     #[doc = " automatically. Create a periodic curve if the first and last points are the"]
     #[doc = " same. Return the tag of the spline curve."]
     pub fn gmshModelGeoAddSpline(
@@ -1565,7 +1565,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a cubic b-spline curve with `pointTags' control points. If `tag' is"]
+    #[doc = " Add a cubic b-spline curve with `pointTags` control points. If `tag` is"]
     #[doc = " positive, set the tag explicitly; otherwise a new tag is selected"]
     #[doc = " automatically. Creates a periodic curve if the first and last points are"]
     #[doc = " the same. Return the tag of the b-spline curve."]
@@ -1577,7 +1577,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a Bezier curve with `pointTags' control points. If `tag' is positive,"]
+    #[doc = " Add a Bezier curve with `pointTags` control points. If `tag` is positive,"]
     #[doc = " set the tag explicitly; otherwise a new tag is selected automatically."]
     #[doc = " Return the tag of the Bezier curve."]
     pub fn gmshModelGeoAddBezier(
@@ -1588,10 +1588,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a curve loop (a closed wire) formed by the curves `curveTags'."]
-    #[doc = " `curveTags' should contain (signed) tags of model enties of dimension 1"]
+    #[doc = " Add a curve loop (a closed wire) formed by the curves `curveTags`."]
+    #[doc = " `curveTags` should contain (signed) tags of model enties of dimension 1"]
     #[doc = " forming a closed loop: a negative tag signifies that the underlying curve"]
-    #[doc = " is considered with reversed orientation. If `tag' is positive, set the tag"]
+    #[doc = " is considered with reversed orientation. If `tag` is positive, set the tag"]
     #[doc = " explicitly; otherwise a new tag is selected automatically. Return the tag"]
     #[doc = " of the curve loop."]
     pub fn gmshModelGeoAddCurveLoop(
@@ -1602,9 +1602,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a plane surface defined by one or more curve loops `wireTags'. The"]
+    #[doc = " Add a plane surface defined by one or more curve loops `wireTags`. The"]
     #[doc = " first curve loop defines the exterior contour; additional curve loop define"]
-    #[doc = " holes. If `tag' is positive, set the tag explicitly; otherwise a new tag is"]
+    #[doc = " holes. If `tag` is positive, set the tag explicitly; otherwise a new tag is"]
     #[doc = " selected automatically. Return the tag of the surface."]
     pub fn gmshModelGeoAddPlaneSurface(
         wireTags: *mut ::std::os::raw::c_int,
@@ -1614,9 +1614,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a surface filling the curve loops in `wireTags'. Currently only a"]
+    #[doc = " Add a surface filling the curve loops in `wireTags`. Currently only a"]
     #[doc = " single curve loop is supported; this curve loop should be composed by 3 or"]
-    #[doc = " 4 curves only. If `tag' is positive, set the tag explicitly; otherwise a"]
+    #[doc = " 4 curves only. If `tag` is positive, set the tag explicitly; otherwise a"]
     #[doc = " new tag is selected automatically. Return the tag of the surface."]
     pub fn gmshModelGeoAddSurfaceFilling(
         wireTags: *mut ::std::os::raw::c_int,
@@ -1627,7 +1627,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a surface loop (a closed shell) formed by `surfaceTags'.  If `tag' is"]
+    #[doc = " Add a surface loop (a closed shell) formed by `surfaceTags`.  If `tag` is"]
     #[doc = " positive, set the tag explicitly; otherwise a new tag is selected"]
     #[doc = " automatically. Return the tag of the shell."]
     pub fn gmshModelGeoAddSurfaceLoop(
@@ -1638,9 +1638,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a volume (a region) defined by one or more shells `shellTags'. The"]
+    #[doc = " Add a volume (a region) defined by one or more shells `shellTags`. The"]
     #[doc = " first surface loop defines the exterior boundary; additional surface loop"]
-    #[doc = " define holes. If `tag' is positive, set the tag explicitly; otherwise a new"]
+    #[doc = " define holes. If `tag` is positive, set the tag explicitly; otherwise a new"]
     #[doc = " tag is selected automatically. Return the tag of the volume."]
     pub fn gmshModelGeoAddVolume(
         shellTags: *mut ::std::os::raw::c_int,
@@ -1650,12 +1650,12 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Extrude the model entities `dimTags' by translation along (`dx', `dy',"]
-    #[doc = " `dz'). Return extruded entities in `outDimTags'. If `numElements' is not"]
-    #[doc = " empty, also extrude the mesh: the entries in `numElements' give the number"]
-    #[doc = " of elements in each layer. If `height' is not empty, it provides the"]
-    #[doc = " (cumulative) height of the different layers, normalized to 1. If `dx' =="]
-    #[doc = " `dy' == `dz' == 0, the entities are extruded along their normal."]
+    #[doc = " Extrude the model entities `dimTags` by translation along (`dx`, `dy`,"]
+    #[doc = " `dz`). Return extruded entities in `outDimTags`. If `numElements` is not"]
+    #[doc = " empty, also extrude the mesh: the entries in `numElements` give the number"]
+    #[doc = " of elements in each layer. If `height` is not empty, it provides the"]
+    #[doc = " (cumulative) height of the different layers, normalized to 1. If `dx` =="]
+    #[doc = " `dy` == `dz` == 0, the entities are extruded along their normal."]
     pub fn gmshModelGeoExtrude(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -1673,12 +1673,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Extrude the model entities `dimTags' by rotation of `angle' radians around"]
-    #[doc = " the axis of revolution defined by the point (`x', `y', `z') and the"]
-    #[doc = " direction (`ax', `ay', `az'). The angle should be strictly smaller than Pi."]
-    #[doc = " Return extruded entities in `outDimTags'. If `numElements' is not empty,"]
-    #[doc = " also extrude the mesh: the entries in `numElements' give the number of"]
-    #[doc = " elements in each layer. If `height' is not empty, it provides the"]
+    #[doc = " Extrude the model entities `dimTags` by rotation of `angle` radians around"]
+    #[doc = " the axis of revolution defined by the point (`x`, `y`, `z`) and the"]
+    #[doc = " direction (`ax`, `ay`, `az`). The angle should be strictly smaller than Pi."]
+    #[doc = " Return extruded entities in `outDimTags`. If `numElements` is not empty,"]
+    #[doc = " also extrude the mesh: the entries in `numElements` give the number of"]
+    #[doc = " elements in each layer. If `height` is not empty, it provides the"]
     #[doc = " (cumulative) height of the different layers, normalized to 1."]
     pub fn gmshModelGeoRevolve(
         dimTags: *mut ::std::os::raw::c_int,
@@ -1701,13 +1701,13 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Extrude the model entities `dimTags' by a combined translation and rotation"]
-    #[doc = " of `angle' radians, along (`dx', `dy', `dz') and around the axis of"]
-    #[doc = " revolution defined by the point (`x', `y', `z') and the direction (`ax',"]
-    #[doc = " `ay', `az'). The angle should be strictly smaller than Pi. Return extruded"]
-    #[doc = " entities in `outDimTags'. If `numElements' is not empty, also extrude the"]
-    #[doc = " mesh: the entries in `numElements' give the number of elements in each"]
-    #[doc = " layer. If `height' is not empty, it provides the (cumulative) height of the"]
+    #[doc = " Extrude the model entities `dimTags` by a combined translation and rotation"]
+    #[doc = " of `angle` radians, along (`dx`, `dy`, `dz`) and around the axis of"]
+    #[doc = " revolution defined by the point (`x`, `y`, `z`) and the direction (`ax`,"]
+    #[doc = " `ay`, `az`). The angle should be strictly smaller than Pi. Return extruded"]
+    #[doc = " entities in `outDimTags`. If `numElements` is not empty, also extrude the"]
+    #[doc = " mesh: the entries in `numElements` give the number of elements in each"]
+    #[doc = " layer. If `height` is not empty, it provides the (cumulative) height of the"]
     #[doc = " different layers, normalized to 1."]
     pub fn gmshModelGeoTwist(
         dimTags: *mut ::std::os::raw::c_int,
@@ -1733,7 +1733,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Translate the model entities `dimTags' along (`dx', `dy', `dz')."]
+    #[doc = " Translate the model entities `dimTags` along (`dx`, `dy`, `dz`)."]
     pub fn gmshModelGeoTranslate(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -1744,9 +1744,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Rotate the model entities `dimTags' of `angle' radians around the axis of"]
-    #[doc = " revolution defined by the point (`x', `y', `z') and the direction (`ax',"]
-    #[doc = " `ay', `az')."]
+    #[doc = " Rotate the model entities `dimTags` of `angle` radians around the axis of"]
+    #[doc = " revolution defined by the point (`x`, `y`, `z`) and the direction (`ax`,"]
+    #[doc = " `ay`, `az`)."]
     pub fn gmshModelGeoRotate(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -1761,8 +1761,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Scale the model entities `dimTag' by factors `a', `b' and `c' along the"]
-    #[doc = " three coordinate axes; use (`x', `y', `z') as the center of the homothetic"]
+    #[doc = " Scale the model entities `dimTag` by factors `a`, `b` and `c` along the"]
+    #[doc = " three coordinate axes; use (`x`, `y`, `z`) as the center of the homothetic"]
     #[doc = " transformation."]
     pub fn gmshModelGeoDilate(
         dimTags: *mut ::std::os::raw::c_int,
@@ -1777,8 +1777,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Apply a symmetry transformation to the model entities `dimTag', with"]
-    #[doc = " respect to the plane of equation `a' * x + `b' * y + `c' * z + `d' = 0."]
+    #[doc = " Apply a symmetry transformation to the model entities `dimTag`, with"]
+    #[doc = " respect to the plane of equation `a` * x + `b` * y + `c` * z + `d` = 0."]
     pub fn gmshModelGeoSymmetrize(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -1790,7 +1790,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Copy the entities `dimTags'; the new entities are returned in `outDimTags'."]
+    #[doc = " Copy the entities `dimTags`; the new entities are returned in `outDimTags`."]
     pub fn gmshModelGeoCopy(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -1800,7 +1800,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Remove the entities `dimTags'. If `recursive' is true, remove all the"]
+    #[doc = " Remove the entities `dimTags`. If `recursive` is true, remove all the"]
     #[doc = " entities on their boundaries, down to dimension 0."]
     pub fn gmshModelGeoRemove(
         dimTags: *mut ::std::os::raw::c_int,
@@ -1822,7 +1822,7 @@ extern "C" {
     pub fn gmshModelGeoSynchronize(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Set a mesh size constraint on the model entities `dimTags'. Currently only"]
+    #[doc = " Set a mesh size constraint on the model entities `dimTags`. Currently only"]
     #[doc = " entities of dimension 0 (points) are handled."]
     pub fn gmshModelGeoMeshSetSize(
         dimTags: *mut ::std::os::raw::c_int,
@@ -1832,9 +1832,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a transfinite meshing constraint on the curve `tag', with `numNodes'"]
-    #[doc = " nodes distributed according to `meshType' and `coef'. Currently supported"]
-    #[doc = " types are \"Progression\" (geometrical progression with power `coef') and"]
+    #[doc = " Set a transfinite meshing constraint on the curve `tag`, with `numNodes`"]
+    #[doc = " nodes distributed according to `meshType` and `coef`. Currently supported"]
+    #[doc = " types are \"Progression\" (geometrical progression with power `coef`) and"]
     #[doc = " \"Bump\" (refinement toward both extremities of the curve)."]
     pub fn gmshModelGeoMeshSetTransfiniteCurve(
         tag: ::std::os::raw::c_int,
@@ -1845,10 +1845,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a transfinite meshing constraint on the surface `tag'. `arrangement'"]
+    #[doc = " Set a transfinite meshing constraint on the surface `tag`. `arrangement`"]
     #[doc = " describes the arrangement of the triangles when the surface is not flagged"]
     #[doc = " as recombined: currently supported values are \"Left\", \"Right\","]
-    #[doc = " \"AlternateLeft\" and \"AlternateRight\". `cornerTags' can be used to specify"]
+    #[doc = " \"AlternateLeft\" and \"AlternateRight\". `cornerTags` can be used to specify"]
     #[doc = " the (3 or 4) corners of the transfinite interpolation explicitly;"]
     #[doc = " specifying the corners explicitly is mandatory if the surface has more that"]
     #[doc = " 3 or 4 points on its boundary."]
@@ -1861,7 +1861,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a transfinite meshing constraint on the surface `tag'. `cornerTags' can"]
+    #[doc = " Set a transfinite meshing constraint on the surface `tag`. `cornerTags` can"]
     #[doc = " be used to specify the (6 or 8) corners of the transfinite interpolation"]
     #[doc = " explicitly."]
     pub fn gmshModelGeoMeshSetTransfiniteVolume(
@@ -1873,7 +1873,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Set a recombination meshing constraint on the model entity of dimension"]
-    #[doc = " `dim' and tag `tag'. Currently only entities of dimension 2 (to recombine"]
+    #[doc = " `dim` and tag `tag`. Currently only entities of dimension 2 (to recombine"]
     #[doc = " triangles into quadrangles) are supported."]
     pub fn gmshModelGeoMeshSetRecombine(
         dim: ::std::os::raw::c_int,
@@ -1883,8 +1883,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a smoothing meshing constraint on the model entity of dimension `dim'"]
-    #[doc = " and tag `tag'. `val' iterations of a Laplace smoother are applied."]
+    #[doc = " Set a smoothing meshing constraint on the model entity of dimension `dim`"]
+    #[doc = " and tag `tag`. `val` iterations of a Laplace smoother are applied."]
     pub fn gmshModelGeoMeshSetSmoothing(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -1893,10 +1893,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a reverse meshing constraint on the model entity of dimension `dim' and"]
-    #[doc = " tag `tag'. If `val' is true, the mesh orientation will be reversed with"]
+    #[doc = " Set a reverse meshing constraint on the model entity of dimension `dim` and"]
+    #[doc = " tag `tag`. If `val` is true, the mesh orientation will be reversed with"]
     #[doc = " respect to the natural mesh orientation (i.e. the orientation consistent"]
-    #[doc = " with the orientation of the geometry). If `val' is false, the mesh is left"]
+    #[doc = " with the orientation of the geometry). If `val` is false, the mesh is left"]
     #[doc = " as-is."]
     pub fn gmshModelGeoMeshSetReverse(
         dim: ::std::os::raw::c_int,
@@ -1907,10 +1907,10 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Add a geometrical point in the OpenCASCADE CAD representation, at"]
-    #[doc = " coordinates (`x', `y', `z'). If `meshSize' is > 0, add a meshing constraint"]
-    #[doc = " at that point. If `tag' is positive, set the tag explicitly; otherwise a"]
+    #[doc = " coordinates (`x`, `y`, `z`). If `meshSize` is > 0, add a meshing constraint"]
+    #[doc = " at that point. If `tag` is positive, set the tag explicitly; otherwise a"]
     #[doc = " new tag is selected automatically. Return the tag of the point. (Note that"]
-    #[doc = " the point will be added in the current model only after `synchronize' is"]
+    #[doc = " the point will be added in the current model only after `synchronize` is"]
     #[doc = " called. This behavior holds for all the entities added in the occ module.)"]
     pub fn gmshModelOccAddPoint(
         x: f64,
@@ -1922,8 +1922,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a straight line segment between the two points with tags `startTag' and"]
-    #[doc = " `endTag'. If `tag' is positive, set the tag explicitly; otherwise a new tag"]
+    #[doc = " Add a straight line segment between the two points with tags `startTag` and"]
+    #[doc = " `endTag`. If `tag` is positive, set the tag explicitly; otherwise a new tag"]
     #[doc = " is selected automatically. Return the tag of the line."]
     pub fn gmshModelOccAddLine(
         startTag: ::std::os::raw::c_int,
@@ -1933,8 +1933,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a circle arc between the two points with tags `startTag' and `endTag',"]
-    #[doc = " with center `centerTag'. If `tag' is positive, set the tag explicitly;"]
+    #[doc = " Add a circle arc between the two points with tags `startTag` and `endTag`,"]
+    #[doc = " with center `centerTag`. If `tag` is positive, set the tag explicitly;"]
     #[doc = " otherwise a new tag is selected automatically. Return the tag of the circle"]
     #[doc = " arc."]
     pub fn gmshModelOccAddCircleArc(
@@ -1946,9 +1946,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a circle of center (`x', `y', `z') and radius `r'. If `tag' is"]
+    #[doc = " Add a circle of center (`x`, `y`, `z`) and radius `r`. If `tag` is"]
     #[doc = " positive, set the tag explicitly; otherwise a new tag is selected"]
-    #[doc = " automatically. If `angle1' and `angle2' are specified, create a circle arc"]
+    #[doc = " automatically. If `angle1` and `angle2` are specified, create a circle arc"]
     #[doc = " between the two angles. Return the tag of the circle."]
     pub fn gmshModelOccAddCircle(
         x: f64,
@@ -1962,8 +1962,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add an ellipse arc between the two points `startTag' and `endTag', with"]
-    #[doc = " center `centerTag' and major axis point `majorTag'. If `tag' is positive,"]
+    #[doc = " Add an ellipse arc between the two points `startTag` and `endTag`, with"]
+    #[doc = " center `centerTag` and major axis point `majorTag`. If `tag` is positive,"]
     #[doc = " set the tag explicitly; otherwise a new tag is selected automatically."]
     #[doc = " Return the tag of the ellipse arc. Note that OpenCASCADE does not allow"]
     #[doc = " creating ellipse arcs with the major radius smaller than the minor radius."]
@@ -1977,13 +1977,13 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add an ellipse of center (`x', `y', `z') and radii `r1' and `r2' along the"]
-    #[doc = " x- and y-axes respectively. If `tag' is positive, set the tag explicitly;"]
-    #[doc = " otherwise a new tag is selected automatically. If `angle1' and `angle2' are"]
+    #[doc = " Add an ellipse of center (`x`, `y`, `z`) and radii `r1` and `r2` along the"]
+    #[doc = " x- and y-axes respectively. If `tag` is positive, set the tag explicitly;"]
+    #[doc = " otherwise a new tag is selected automatically. If `angle1` and `angle2` are"]
     #[doc = " specified, create an ellipse arc between the two angles. Return the tag of"]
     #[doc = " the ellipse. Note that OpenCASCADE does not allow creating ellipses with"]
     #[doc = " the major radius (along the x-axis) smaller than or equal to the minor"]
-    #[doc = " radius (along the y-axis): rotate the shape or use `addCircle' in such"]
+    #[doc = " radius (along the y-axis): rotate the shape or use `addCircle` in such"]
     #[doc = " cases."]
     pub fn gmshModelOccAddEllipse(
         x: f64,
@@ -1998,8 +1998,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a spline (C2 b-spline) curve going through the points `pointTags'. If"]
-    #[doc = " `tag' is positive, set the tag explicitly; otherwise a new tag is selected"]
+    #[doc = " Add a spline (C2 b-spline) curve going through the points `pointTags`. If"]
+    #[doc = " `tag` is positive, set the tag explicitly; otherwise a new tag is selected"]
     #[doc = " automatically. Create a periodic curve if the first and last points are the"]
     #[doc = " same. Return the tag of the spline curve."]
     pub fn gmshModelOccAddSpline(
@@ -2010,9 +2010,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a b-spline curve of degree `degree' with `pointTags' control points. If"]
-    #[doc = " `weights', `knots' or `multiplicities' are not provided, default parameters"]
-    #[doc = " are computed automatically. If `tag' is positive, set the tag explicitly;"]
+    #[doc = " Add a b-spline curve of degree `degree` with `pointTags` control points. If"]
+    #[doc = " `weights`, `knots` or `multiplicities` are not provided, default parameters"]
+    #[doc = " are computed automatically. If `tag` is positive, set the tag explicitly;"]
     #[doc = " otherwise a new tag is selected automatically. Create a periodic curve if"]
     #[doc = " the first and last points are the same. Return the tag of the b-spline"]
     #[doc = " curve."]
@@ -2031,7 +2031,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a Bezier curve with `pointTags' control points. If `tag' is positive,"]
+    #[doc = " Add a Bezier curve with `pointTags` control points. If `tag` is positive,"]
     #[doc = " set the tag explicitly; otherwise a new tag is selected automatically."]
     #[doc = " Return the tag of the Bezier curve."]
     pub fn gmshModelOccAddBezier(
@@ -2042,9 +2042,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a wire (open or closed) formed by the curves `curveTags'. Note that an"]
+    #[doc = " Add a wire (open or closed) formed by the curves `curveTags`. Note that an"]
     #[doc = " OpenCASCADE wire can be made of curves that share geometrically identical"]
-    #[doc = " (but topologically different) points. If `tag' is positive, set the tag"]
+    #[doc = " (but topologically different) points. If `tag` is positive, set the tag"]
     #[doc = " explicitly; otherwise a new tag is selected automatically. Return the tag"]
     #[doc = " of the wire."]
     pub fn gmshModelOccAddWire(
@@ -2056,10 +2056,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a curve loop (a closed wire) formed by the curves `curveTags'."]
-    #[doc = " `curveTags' should contain tags of curves forming a closed loop. Note that"]
+    #[doc = " Add a curve loop (a closed wire) formed by the curves `curveTags`."]
+    #[doc = " `curveTags` should contain tags of curves forming a closed loop. Note that"]
     #[doc = " an OpenCASCADE curve loop can be made of curves that share geometrically"]
-    #[doc = " identical (but topologically different) points. If `tag' is positive, set"]
+    #[doc = " identical (but topologically different) points. If `tag` is positive, set"]
     #[doc = " the tag explicitly; otherwise a new tag is selected automatically. Return"]
     #[doc = " the tag of the curve loop."]
     pub fn gmshModelOccAddCurveLoop(
@@ -2070,10 +2070,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a rectangle with lower left corner at (`x', `y', `z') and upper right"]
-    #[doc = " corner at (`x' + `dx', `y' + `dy', `z'). If `tag' is positive, set the tag"]
+    #[doc = " Add a rectangle with lower left corner at (`x`, `y`, `z`) and upper right"]
+    #[doc = " corner at (`x` + `dx`, `y` + `dy`, `z`). If `tag` is positive, set the tag"]
     #[doc = " explicitly; otherwise a new tag is selected automatically. Round the"]
-    #[doc = " corners if `roundedRadius' is nonzero. Return the tag of the rectangle."]
+    #[doc = " corners if `roundedRadius` is nonzero. Return the tag of the rectangle."]
     pub fn gmshModelOccAddRectangle(
         x: f64,
         y: f64,
@@ -2086,8 +2086,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a disk with center (`xc', `yc', `zc') and radius `rx' along the x-axis"]
-    #[doc = " and `ry' along the y-axis. If `tag' is positive, set the tag explicitly;"]
+    #[doc = " Add a disk with center (`xc`, `yc`, `zc`) and radius `rx` along the x-axis"]
+    #[doc = " and `ry` along the y-axis. If `tag` is positive, set the tag explicitly;"]
     #[doc = " otherwise a new tag is selected automatically. Return the tag of the disk."]
     pub fn gmshModelOccAddDisk(
         xc: f64,
@@ -2101,8 +2101,8 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Add a plane surface defined by one or more curve loops (or closed wires)"]
-    #[doc = " `wireTags'. The first curve loop defines the exterior contour; additional"]
-    #[doc = " curve loop define holes. If `tag' is positive, set the tag explicitly;"]
+    #[doc = " `wireTags`. The first curve loop defines the exterior contour; additional"]
+    #[doc = " curve loop define holes. If `tag` is positive, set the tag explicitly;"]
     #[doc = " otherwise a new tag is selected automatically. Return the tag of the"]
     #[doc = " surface."]
     pub fn gmshModelOccAddPlaneSurface(
@@ -2113,9 +2113,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a surface filling the curve loops in `wireTags'. If `tag' is positive,"]
+    #[doc = " Add a surface filling the curve loops in `wireTags`. If `tag` is positive,"]
     #[doc = " set the tag explicitly; otherwise a new tag is selected automatically."]
-    #[doc = " Return the tag of the surface. If `pointTags' are provided, force the"]
+    #[doc = " Return the tag of the surface. If `pointTags` are provided, force the"]
     #[doc = " surface to pass through the given points."]
     pub fn gmshModelOccAddSurfaceFilling(
         wireTag: ::std::os::raw::c_int,
@@ -2126,9 +2126,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a surface loop (a closed shell) formed by `surfaceTags'.  If `tag' is"]
+    #[doc = " Add a surface loop (a closed shell) formed by `surfaceTags`.  If `tag` is"]
     #[doc = " positive, set the tag explicitly; otherwise a new tag is selected"]
-    #[doc = " automatically. Return the tag of the surface loop. Setting `sewing' allows"]
+    #[doc = " automatically. Return the tag of the surface loop. Setting `sewing` allows"]
     #[doc = " to build a shell made of surfaces that share geometrically identical (but"]
     #[doc = " topologically different) curves."]
     pub fn gmshModelOccAddSurfaceLoop(
@@ -2140,9 +2140,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a volume (a region) defined by one or more surface loops `shellTags'."]
+    #[doc = " Add a volume (a region) defined by one or more surface loops `shellTags`."]
     #[doc = " The first surface loop defines the exterior boundary; additional surface"]
-    #[doc = " loop define holes. If `tag' is positive, set the tag explicitly; otherwise"]
+    #[doc = " loop define holes. If `tag` is positive, set the tag explicitly; otherwise"]
     #[doc = " a new tag is selected automatically. Return the tag of the volume."]
     pub fn gmshModelOccAddVolume(
         shellTags: *mut ::std::os::raw::c_int,
@@ -2152,10 +2152,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a sphere of center (`xc', `yc', `zc') and radius `r'. The optional"]
-    #[doc = " `angle1' and `angle2' arguments define the polar angle opening (from -Pi/2"]
-    #[doc = " to Pi/2). The optional `angle3' argument defines the azimuthal opening"]
-    #[doc = " (from 0 to 2*Pi). If `tag' is positive, set the tag explicitly; otherwise a"]
+    #[doc = " Add a sphere of center (`xc`, `yc`, `zc`) and radius `r`. The optional"]
+    #[doc = " `angle1` and `angle2` arguments define the polar angle opening (from -Pi/2"]
+    #[doc = " to Pi/2). The optional `angle3` argument defines the azimuthal opening"]
+    #[doc = " (from 0 to 2*Pi). If `tag` is positive, set the tag explicitly; otherwise a"]
     #[doc = " new tag is selected automatically. Return the tag of the sphere."]
     pub fn gmshModelOccAddSphere(
         xc: f64,
@@ -2170,8 +2170,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a parallelepipedic box defined by a point (`x', `y', `z') and the"]
-    #[doc = " extents along the x-, y- and z-axes. If `tag' is positive, set the tag"]
+    #[doc = " Add a parallelepipedic box defined by a point (`x`, `y`, `z`) and the"]
+    #[doc = " extents along the x-, y- and z-axes. If `tag` is positive, set the tag"]
     #[doc = " explicitly; otherwise a new tag is selected automatically. Return the tag"]
     #[doc = " of the box."]
     pub fn gmshModelOccAddBox(
@@ -2186,10 +2186,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a cylinder, defined by the center (`x', `y', `z') of its first circular"]
-    #[doc = " face, the 3 components (`dx', `dy', `dz') of the vector defining its axis"]
-    #[doc = " and its radius `r'. The optional `angle' argument defines the angular"]
-    #[doc = " opening (from 0 to 2*Pi). If `tag' is positive, set the tag explicitly;"]
+    #[doc = " Add a cylinder, defined by the center (`x`, `y`, `z`) of its first circular"]
+    #[doc = " face, the 3 components (`dx`, `dy`, `dz`) of the vector defining its axis"]
+    #[doc = " and its radius `r`. The optional `angle` argument defines the angular"]
+    #[doc = " opening (from 0 to 2*Pi). If `tag` is positive, set the tag explicitly;"]
     #[doc = " otherwise a new tag is selected automatically. Return the tag of the"]
     #[doc = " cylinder."]
     pub fn gmshModelOccAddCylinder(
@@ -2206,11 +2206,11 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a cone, defined by the center (`x', `y', `z') of its first circular"]
-    #[doc = " face, the 3 components of the vector (`dx', `dy', `dz') defining its axis"]
-    #[doc = " and the two radii `r1' and `r2' of the faces (these radii can be zero). If"]
-    #[doc = " `tag' is positive, set the tag explicitly; otherwise a new tag is selected"]
-    #[doc = " automatically. `angle' defines the optional angular opening (from 0 to"]
+    #[doc = " Add a cone, defined by the center (`x`, `y`, `z`) of its first circular"]
+    #[doc = " face, the 3 components of the vector (`dx`, `dy`, `dz`) defining its axis"]
+    #[doc = " and the two radii `r1` and `r2` of the faces (these radii can be zero). If"]
+    #[doc = " `tag` is positive, set the tag explicitly; otherwise a new tag is selected"]
+    #[doc = " automatically. `angle` defines the optional angular opening (from 0 to"]
     #[doc = " 2*Pi). Return the tag of the cone."]
     pub fn gmshModelOccAddCone(
         x: f64,
@@ -2227,10 +2227,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a right angular wedge, defined by the right-angle point (`x', `y', `z')"]
-    #[doc = " and the 3 extends along the x-, y- and z-axes (`dx', `dy', `dz'). If `tag'"]
+    #[doc = " Add a right angular wedge, defined by the right-angle point (`x`, `y`, `z`)"]
+    #[doc = " and the 3 extends along the x-, y- and z-axes (`dx`, `dy`, `dz`). If `tag`"]
     #[doc = " is positive, set the tag explicitly; otherwise a new tag is selected"]
-    #[doc = " automatically. The optional argument `ltx' defines the top extent along the"]
+    #[doc = " automatically. The optional argument `ltx` defines the top extent along the"]
     #[doc = " x-axis. Return the tag of the wedge."]
     pub fn gmshModelOccAddWedge(
         x: f64,
@@ -2245,9 +2245,9 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a torus, defined by its center (`x', `y', `z') and its 2 radii `r' and"]
-    #[doc = " `r2'. If `tag' is positive, set the tag explicitly; otherwise a new tag is"]
-    #[doc = " selected automatically. The optional argument `angle' defines the angular"]
+    #[doc = " Add a torus, defined by its center (`x`, `y`, `z`) and its 2 radii `r` and"]
+    #[doc = " `r2`. If `tag` is positive, set the tag explicitly; otherwise a new tag is"]
+    #[doc = " selected automatically. The optional argument `angle` defines the angular"]
     #[doc = " opening (from 0 to 2*Pi). Return the tag of the wedge."]
     pub fn gmshModelOccAddTorus(
         x: f64,
@@ -2261,11 +2261,11 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Add a volume (if the optional argument `makeSolid' is set) or surfaces"]
-    #[doc = " defined through the open or closed wires `wireTags'. If `tag' is positive,"]
+    #[doc = " Add a volume (if the optional argument `makeSolid` is set) or surfaces"]
+    #[doc = " defined through the open or closed wires `wireTags`. If `tag` is positive,"]
     #[doc = " set the tag explicitly; otherwise a new tag is selected automatically. The"]
-    #[doc = " new entities are returned in `outDimTags'. If the optional argument"]
-    #[doc = " `makeRuled' is set, the surfaces created on the boundary are forced to be"]
+    #[doc = " new entities are returned in `outDimTags`. If the optional argument"]
+    #[doc = " `makeRuled` is set, the surfaces created on the boundary are forced to be"]
     #[doc = " ruled surfaces."]
     pub fn gmshModelOccAddThruSections(
         wireTags: *mut ::std::os::raw::c_int,
@@ -2279,10 +2279,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add a hollowed volume built from an initial volume `volumeTag' and a set of"]
-    #[doc = " faces from this volume `excludeSurfaceTags', which are to be removed. The"]
+    #[doc = " Add a hollowed volume built from an initial volume `volumeTag` and a set of"]
+    #[doc = " faces from this volume `excludeSurfaceTags`, which are to be removed. The"]
     #[doc = " remaining faces of the volume become the walls of the hollowed solid, with"]
-    #[doc = " thickness `offset'. If `tag' is positive, set the tag explicitly; otherwise"]
+    #[doc = " thickness `offset`. If `tag` is positive, set the tag explicitly; otherwise"]
     #[doc = " a new tag is selected automatically."]
     pub fn gmshModelOccAddThickSolid(
         volumeTag: ::std::os::raw::c_int,
@@ -2296,10 +2296,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Extrude the model entities `dimTags' by translation along (`dx', `dy',"]
-    #[doc = " `dz'). Return extruded entities in `outDimTags'. If `numElements' is not"]
-    #[doc = " empty, also extrude the mesh: the entries in `numElements' give the number"]
-    #[doc = " of elements in each layer. If `height' is not empty, it provides the"]
+    #[doc = " Extrude the model entities `dimTags` by translation along (`dx`, `dy`,"]
+    #[doc = " `dz`). Return extruded entities in `outDimTags`. If `numElements` is not"]
+    #[doc = " empty, also extrude the mesh: the entries in `numElements` give the number"]
+    #[doc = " of elements in each layer. If `height` is not empty, it provides the"]
     #[doc = " (cumulative) height of the different layers, normalized to 1."]
     pub fn gmshModelOccExtrude(
         dimTags: *mut ::std::os::raw::c_int,
@@ -2318,11 +2318,11 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Extrude the model entities `dimTags' by rotation of `angle' radians around"]
-    #[doc = " the axis of revolution defined by the point (`x', `y', `z') and the"]
-    #[doc = " direction (`ax', `ay', `az'). Return extruded entities in `outDimTags'. If"]
-    #[doc = " `numElements' is not empty, also extrude the mesh: the entries in"]
-    #[doc = " `numElements' give the number of elements in each layer. If `height' is not"]
+    #[doc = " Extrude the model entities `dimTags` by rotation of `angle` radians around"]
+    #[doc = " the axis of revolution defined by the point (`x`, `y`, `z`) and the"]
+    #[doc = " direction (`ax`, `ay`, `az`). Return extruded entities in `outDimTags`. If"]
+    #[doc = " `numElements` is not empty, also extrude the mesh: the entries in"]
+    #[doc = " `numElements` give the number of elements in each layer. If `height` is not"]
     #[doc = " empty, it provides the (cumulative) height of the different layers,"]
     #[doc = " normalized to 1. When the mesh is extruded the angle should be strictly"]
     #[doc = " smaller than 2*Pi."]
@@ -2347,8 +2347,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add a pipe by extruding the entities `dimTags' along the wire `wireTag'."]
-    #[doc = " Return the pipe in `outDimTags'."]
+    #[doc = " Add a pipe by extruding the entities `dimTags` along the wire `wireTag`."]
+    #[doc = " Return the pipe in `outDimTags`."]
     pub fn gmshModelOccAddPipe(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -2359,12 +2359,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Fillet the volumes `volumeTags' on the curves `curveTags' with radii"]
-    #[doc = " `radii'. The `radii' vector can either contain a single radius, as many"]
-    #[doc = " radii as `curveTags', or twice as many as `curveTags' (in which case"]
+    #[doc = " Fillet the volumes `volumeTags` on the curves `curveTags` with radii"]
+    #[doc = " `radii`. The `radii` vector can either contain a single radius, as many"]
+    #[doc = " radii as `curveTags`, or twice as many as `curveTags` (in which case"]
     #[doc = " different radii are provided for the begin and end points of the curves)."]
-    #[doc = " Return the filleted entities in `outDimTags'. Remove the original volume if"]
-    #[doc = " `removeVolume' is set."]
+    #[doc = " Return the filleted entities in `outDimTags`. Remove the original volume if"]
+    #[doc = " `removeVolume` is set."]
     pub fn gmshModelOccFillet(
         volumeTags: *mut ::std::os::raw::c_int,
         volumeTags_n: usize,
@@ -2379,14 +2379,14 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Chamfer the volumes `volumeTags' on the curves `curveTags' with distances"]
-    #[doc = " `distances' measured on surfaces `surfaceTags'. The `distances' vector can"]
-    #[doc = " either contain a single distance, as many distances as `curveTags' and"]
-    #[doc = " `surfaceTags', or twice as many as `curveTags' and `surfaceTags' (in which"]
+    #[doc = " Chamfer the volumes `volumeTags` on the curves `curveTags` with distances"]
+    #[doc = " `distances` measured on surfaces `surfaceTags`. The `distances` vector can"]
+    #[doc = " either contain a single distance, as many distances as `curveTags` and"]
+    #[doc = " `surfaceTags`, or twice as many as `curveTags` and `surfaceTags` (in which"]
     #[doc = " case the first in each pair is measured on the corresponding surface in"]
-    #[doc = " `surfaceTags', the other on the other adjacent surface). Return the"]
-    #[doc = " chamfered entities in `outDimTags'. Remove the original volume if"]
-    #[doc = " `removeVolume' is set."]
+    #[doc = " `surfaceTags`, the other on the other adjacent surface). Return the"]
+    #[doc = " chamfered entities in `outDimTags`. Remove the original volume if"]
+    #[doc = " `removeVolume` is set."]
     pub fn gmshModelOccChamfer(
         volumeTags: *mut ::std::os::raw::c_int,
         volumeTags_n: usize,
@@ -2403,11 +2403,11 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Compute the boolean union (the fusion) of the entities `objectDimTags' and"]
-    #[doc = " `toolDimTags'. Return the resulting entities in `outDimTags'. If `tag' is"]
+    #[doc = " Compute the boolean union (the fusion) of the entities `objectDimTags` and"]
+    #[doc = " `toolDimTags`. Return the resulting entities in `outDimTags`. If `tag` is"]
     #[doc = " positive, try to set the tag explicitly (only valid if the boolean"]
-    #[doc = " operation results in a single entity). Remove the object if `removeObject'"]
-    #[doc = " is set. Remove the tool if `removeTool' is set."]
+    #[doc = " operation results in a single entity). Remove the object if `removeObject`"]
+    #[doc = " is set. Remove the tool if `removeTool` is set."]
     pub fn gmshModelOccFuse(
         objectDimTags: *mut ::std::os::raw::c_int,
         objectDimTags_n: usize,
@@ -2426,10 +2426,10 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Compute the boolean intersection (the common parts) of the entities"]
-    #[doc = " `objectDimTags' and `toolDimTags'. Return the resulting entities in"]
-    #[doc = " `outDimTags'. If `tag' is positive, try to set the tag explicitly (only"]
+    #[doc = " `objectDimTags` and `toolDimTags`. Return the resulting entities in"]
+    #[doc = " `outDimTags`. If `tag` is positive, try to set the tag explicitly (only"]
     #[doc = " valid if the boolean operation results in a single entity). Remove the"]
-    #[doc = " object if `removeObject' is set. Remove the tool if `removeTool' is set."]
+    #[doc = " object if `removeObject` is set. Remove the tool if `removeTool` is set."]
     pub fn gmshModelOccIntersect(
         objectDimTags: *mut ::std::os::raw::c_int,
         objectDimTags_n: usize,
@@ -2447,11 +2447,11 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Compute the boolean difference between the entities `objectDimTags' and"]
-    #[doc = " `toolDimTags'. Return the resulting entities in `outDimTags'. If `tag' is"]
+    #[doc = " Compute the boolean difference between the entities `objectDimTags` and"]
+    #[doc = " `toolDimTags`. Return the resulting entities in `outDimTags`. If `tag` is"]
     #[doc = " positive, try to set the tag explicitly (only valid if the boolean"]
-    #[doc = " operation results in a single entity). Remove the object if `removeObject'"]
-    #[doc = " is set. Remove the tool if `removeTool' is set."]
+    #[doc = " operation results in a single entity). Remove the object if `removeObject`"]
+    #[doc = " is set. Remove the tool if `removeTool` is set."]
     pub fn gmshModelOccCut(
         objectDimTags: *mut ::std::os::raw::c_int,
         objectDimTags_n: usize,
@@ -2470,10 +2470,10 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Compute the boolean fragments (general fuse) of the entities"]
-    #[doc = " `objectDimTags' and `toolDimTags'. Return the resulting entities in"]
-    #[doc = " `outDimTags'. If `tag' is positive, try to set the tag explicitly (only"]
+    #[doc = " `objectDimTags` and `toolDimTags`. Return the resulting entities in"]
+    #[doc = " `outDimTags`. If `tag` is positive, try to set the tag explicitly (only"]
     #[doc = " valid if the boolean operation results in a single entity). Remove the"]
-    #[doc = " object if `removeObject' is set. Remove the tool if `removeTool' is set."]
+    #[doc = " object if `removeObject` is set. Remove the tool if `removeTool` is set."]
     pub fn gmshModelOccFragment(
         objectDimTags: *mut ::std::os::raw::c_int,
         objectDimTags_n: usize,
@@ -2491,7 +2491,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Translate the model entities `dimTags' along (`dx', `dy', `dz')."]
+    #[doc = " Translate the model entities `dimTags` along (`dx`, `dy`, `dz`)."]
     pub fn gmshModelOccTranslate(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -2502,9 +2502,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Rotate the model entities `dimTags' of `angle' radians around the axis of"]
-    #[doc = " revolution defined by the point (`x', `y', `z') and the direction (`ax',"]
-    #[doc = " `ay', `az')."]
+    #[doc = " Rotate the model entities `dimTags` of `angle` radians around the axis of"]
+    #[doc = " revolution defined by the point (`x`, `y`, `z`) and the direction (`ax`,"]
+    #[doc = " `ay`, `az`)."]
     pub fn gmshModelOccRotate(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -2519,8 +2519,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Scale the model entities `dimTag' by factors `a', `b' and `c' along the"]
-    #[doc = " three coordinate axes; use (`x', `y', `z') as the center of the homothetic"]
+    #[doc = " Scale the model entities `dimTag` by factors `a`, `b` and `c` along the"]
+    #[doc = " three coordinate axes; use (`x`, `y`, `z`) as the center of the homothetic"]
     #[doc = " transformation."]
     pub fn gmshModelOccDilate(
         dimTags: *mut ::std::os::raw::c_int,
@@ -2535,8 +2535,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Apply a symmetry transformation to the model entities `dimTag', with"]
-    #[doc = " respect to the plane of equation `a' * x + `b' * y + `c' * z + `d' = 0."]
+    #[doc = " Apply a symmetry transformation to the model entities `dimTag`, with"]
+    #[doc = " respect to the plane of equation `a` * x + `b` * y + `c` * z + `d` = 0."]
     pub fn gmshModelOccSymmetrize(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -2548,9 +2548,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Apply a general affine transformation matrix `a' (16 entries of a 4x4"]
+    #[doc = " Apply a general affine transformation matrix `a` (16 entries of a 4x4"]
     #[doc = " matrix, by row; only the 12 first can be provided for convenience) to the"]
-    #[doc = " model entities `dimTag'."]
+    #[doc = " model entities `dimTag`."]
     pub fn gmshModelOccAffineTransform(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -2560,7 +2560,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Copy the entities `dimTags'; the new entities are returned in `outDimTags'."]
+    #[doc = " Copy the entities `dimTags`; the new entities are returned in `outDimTags`."]
     pub fn gmshModelOccCopy(
         dimTags: *mut ::std::os::raw::c_int,
         dimTags_n: usize,
@@ -2570,7 +2570,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Remove the entities `dimTags'. If `recursive' is true, remove all the"]
+    #[doc = " Remove the entities `dimTags`. If `recursive` is true, remove all the"]
     #[doc = " entities on their boundaries, down to dimension 0."]
     pub fn gmshModelOccRemove(
         dimTags: *mut ::std::os::raw::c_int,
@@ -2586,9 +2586,9 @@ extern "C" {
     pub fn gmshModelOccRemoveAllDuplicates(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Apply various healing procedures to the entities `dimTags' (or to all the"]
-    #[doc = " entities in the model if `dimTags' is empty). Return the healed entities in"]
-    #[doc = " `outDimTags'. Available healing options are listed in the Gmsh reference"]
+    #[doc = " Apply various healing procedures to the entities `dimTags` (or to all the"]
+    #[doc = " entities in the model if `dimTags` is empty). Return the healed entities in"]
+    #[doc = " `outDimTags`. Available healing options are listed in the Gmsh reference"]
     #[doc = " manual."]
     pub fn gmshModelOccHealShapes(
         outDimTags: *mut *mut ::std::os::raw::c_int,
@@ -2604,10 +2604,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Import BREP, STEP or IGES shapes from the file `fileName'. The imported"]
-    #[doc = " entities are returned in `outDimTags'. If the optional argument"]
-    #[doc = " `highestDimOnly' is set, only import the highest dimensional entities in"]
-    #[doc = " the file. The optional argument `format' can be used to force the format of"]
+    #[doc = " Import BREP, STEP or IGES shapes from the file `fileName`. The imported"]
+    #[doc = " entities are returned in `outDimTags`. If the optional argument"]
+    #[doc = " `highestDimOnly` is set, only import the highest dimensional entities in"]
+    #[doc = " the file. The optional argument `format` can be used to force the format of"]
     #[doc = " the file (currently \"brep\", \"step\" or \"iges\")."]
     pub fn gmshModelOccImportShapes(
         fileName: *const ::std::os::raw::c_char,
@@ -2619,11 +2619,11 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Imports an OpenCASCADE `shape' by providing a pointer to a native"]
-    #[doc = " OpenCASCADE `TopoDS_Shape' object (passed as a pointer to void). The"]
-    #[doc = " imported entities are returned in `outDimTags'. If the optional argument"]
-    #[doc = " `highestDimOnly' is set, only import the highest dimensional entities in"]
-    #[doc = " `shape'. For C and C++ only. Warning: this function is unsafe, as providing"]
+    #[doc = " Imports an OpenCASCADE `shape` by providing a pointer to a native"]
+    #[doc = " OpenCASCADE `TopoDS_Shape` object (passed as a pointer to void). The"]
+    #[doc = " imported entities are returned in `outDimTags`. If the optional argument"]
+    #[doc = " `highestDimOnly` is set, only import the highest dimensional entities in"]
+    #[doc = " `shape`. For C and C++ only. Warning: this function is unsafe, as providing"]
     #[doc = " an invalid pointer will lead to undefined behavior."]
     pub fn gmshModelOccImportShapesNativePointer(
         shape: *const ::std::os::raw::c_void,
@@ -2634,7 +2634,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set a mesh size constraint on the model entities `dimTags'. Currently only"]
+    #[doc = " Set a mesh size constraint on the model entities `dimTags`. Currently only"]
     #[doc = " entities of dimension 0 (points) are handled."]
     pub fn gmshModelOccSetMeshSize(
         dimTags: *mut ::std::os::raw::c_int,
@@ -2644,7 +2644,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the mass of the model entity of dimension `dim' and tag `tag'."]
+    #[doc = " Get the mass of the model entity of dimension `dim` and tag `tag`."]
     pub fn gmshModelOccGetMass(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -2653,8 +2653,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the center of mass of the model entity of dimension `dim' and tag"]
-    #[doc = " `tag'."]
+    #[doc = " Get the center of mass of the model entity of dimension `dim` and tag"]
+    #[doc = " `tag`."]
     pub fn gmshModelOccGetCenterOfMass(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -2665,8 +2665,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the matrix of inertia (by row) of the model entity of dimension `dim'"]
-    #[doc = " and tag `tag'."]
+    #[doc = " Get the matrix of inertia (by row) of the model entity of dimension `dim`"]
+    #[doc = " and tag `tag`."]
     pub fn gmshModelOccGetMatrixOfInertia(
         dim: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -2683,7 +2683,7 @@ extern "C" {
     pub fn gmshModelOccSynchronize(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Add a new post-processing view, with name `name'. If `tag' is positive use"]
+    #[doc = " Add a new post-processing view, with name `name`. If `tag` is positive use"]
     #[doc = " it (and remove the view with that tag if it already exists), otherwise"]
     #[doc = " associate a new tag. Return the view tag."]
     pub fn gmshViewAdd(
@@ -2693,11 +2693,11 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Remove the view with tag `tag'."]
+    #[doc = " Remove the view with tag `tag`."]
     pub fn gmshViewRemove(tag: ::std::os::raw::c_int, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Get the index of the view with tag `tag' in the list of currently loaded"]
+    #[doc = " Get the index of the view with tag `tag` in the list of currently loaded"]
     #[doc = " views. This dynamic index (it can change when views are removed) is used to"]
     #[doc = " access view options."]
     pub fn gmshViewGetIndex(
@@ -2714,18 +2714,18 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add model-based post-processing data to the view with tag `tag'."]
-    #[doc = " `modelName' identifies the model the data is attached to. `dataType'"]
+    #[doc = " Add model-based post-processing data to the view with tag `tag`."]
+    #[doc = " `modelName` identifies the model the data is attached to. `dataType`"]
     #[doc = " specifies the type of data, currently either \"NodeData\", \"ElementData\" or"]
-    #[doc = " \"ElementNodeData\". `step' specifies the identifier (>= 0) of the data in a"]
-    #[doc = " sequence. `tags' gives the tags of the nodes or elements in the mesh to"]
-    #[doc = " which the data is associated. `data' is a vector of the same length as"]
-    #[doc = " `tags': each entry is the vector of double precision numbers representing"]
-    #[doc = " the data associated with the corresponding tag. The optional `time'"]
-    #[doc = " argument associate a time value with the data. `numComponents' gives the"]
+    #[doc = " \"ElementNodeData\". `step` specifies the identifier (>= 0) of the data in a"]
+    #[doc = " sequence. `tags` gives the tags of the nodes or elements in the mesh to"]
+    #[doc = " which the data is associated. `data` is a vector of the same length as"]
+    #[doc = " `tags`: each entry is the vector of double precision numbers representing"]
+    #[doc = " the data associated with the corresponding tag. The optional `time`"]
+    #[doc = " argument associate a time value with the data. `numComponents` gives the"]
     #[doc = " number of data components (1 for scalar data, 3 for vector data, etc.) per"]
     #[doc = " entity; if negative, it is automatically inferred (when possible) from the"]
-    #[doc = " input data. `partition' allows to specify data in several sub-sets."]
+    #[doc = " input data. `partition` allows to specify data in several sub-sets."]
     pub fn gmshViewAddModelData(
         tag: ::std::os::raw::c_int,
         step: ::std::os::raw::c_int,
@@ -2743,10 +2743,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get model-based post-processing data from the view with tag `tag' at step"]
-    #[doc = " `step'. Return the `data' associated to the nodes or the elements with tags"]
-    #[doc = " `tags', as well as the `dataType' and the number of components"]
-    #[doc = " `numComponents'."]
+    #[doc = " Get model-based post-processing data from the view with tag `tag` at step"]
+    #[doc = " `step`. Return the `data` associated to the nodes or the elements with tags"]
+    #[doc = " `tags`, as well as the `dataType` and the number of components"]
+    #[doc = " `numComponents`."]
     pub fn gmshViewGetModelData(
         tag: ::std::os::raw::c_int,
         step: ::std::os::raw::c_int,
@@ -2762,10 +2762,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add list-based post-processing data to the view with tag `tag'. `dataType'"]
+    #[doc = " Add list-based post-processing data to the view with tag `tag`. `dataType`"]
     #[doc = " identifies the data: \"SP\" for scalar points, \"VP\", for vector points, etc."]
-    #[doc = " `numEle' gives the number of elements in the data. `data' contains the data"]
-    #[doc = " for the `numEle' elements."]
+    #[doc = " `numEle` gives the number of elements in the data. `data` contains the data"]
+    #[doc = " for the `numEle` elements."]
     pub fn gmshViewAddListData(
         tag: ::std::os::raw::c_int,
         dataType: *const ::std::os::raw::c_char,
@@ -2776,9 +2776,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get list-based post-processing data from the view with tag `tag'. Return"]
-    #[doc = " the types `dataTypes', the number of elements `numElements' for each data"]
-    #[doc = " type and the `data' for each data type."]
+    #[doc = " Get list-based post-processing data from the view with tag `tag`. Return"]
+    #[doc = " the types `dataTypes`, the number of elements `numElements` for each data"]
+    #[doc = " type and the `data` for each data type."]
     pub fn gmshViewGetListData(
         tag: ::std::os::raw::c_int,
         dataType: *mut *mut *mut ::std::os::raw::c_char,
@@ -2792,9 +2792,9 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Add a post-processing view as an `alias' of the reference view with tag"]
-    #[doc = " `refTag'. If `copyOptions' is set, copy the options of the reference view."]
-    #[doc = " If `tag' is positive use it (and remove the view with that tag if it"]
+    #[doc = " Add a post-processing view as an `alias` of the reference view with tag"]
+    #[doc = " `refTag`. If `copyOptions` is set, copy the options of the reference view."]
+    #[doc = " If `tag` is positive use it (and remove the view with that tag if it"]
     #[doc = " already exists), otherwise associate a new tag. Return the view tag."]
     pub fn gmshViewAddAlias(
         refTag: ::std::os::raw::c_int,
@@ -2804,8 +2804,8 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Copy the options from the view with tag `refTag' to the view with tag"]
-    #[doc = " `tag'."]
+    #[doc = " Copy the options from the view with tag `refTag` to the view with tag"]
+    #[doc = " `tag`."]
     pub fn gmshViewCopyOptions(
         refTag: ::std::os::raw::c_int,
         tag: ::std::os::raw::c_int,
@@ -2813,10 +2813,10 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Combine elements (if `what' == \"elements\") or steps (if `what' == \"steps\")"]
-    #[doc = " of all views (`how' == \"all\"), all visible views (`how' == \"visible\") or"]
-    #[doc = " all views having the same name (`how' == \"name\"). Remove original views if"]
-    #[doc = " `remove' is set."]
+    #[doc = " Combine elements (if `what` == \"elements\") or steps (if `what` == \"steps\")"]
+    #[doc = " of all views (`how` == \"all\"), all visible views (`how` == \"visible\") or"]
+    #[doc = " all views having the same name (`how` == \"name\"). Remove original views if"]
+    #[doc = " `remove` is set."]
     pub fn gmshViewCombine(
         what: *const ::std::os::raw::c_char,
         how: *const ::std::os::raw::c_char,
@@ -2825,13 +2825,13 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Probe the view `tag' for its `value' at point (`x', `y', `z'). Return only"]
-    #[doc = " the value at step `step' is `step' is positive. Return only values with"]
-    #[doc = " `numComp' if `numComp' is positive. Return the gradient of the `value' if"]
-    #[doc = " `gradient' is set. Probes with a geometrical tolerance (in the reference"]
-    #[doc = " unit cube) of `tolerance' if `tolerance' is not zero. Return the result"]
-    #[doc = " from the element described by its coordinates if `xElementCoord',"]
-    #[doc = " `yElementCoord' and `zElementCoord' are provided."]
+    #[doc = " Probe the view `tag` for its `value` at point (`x`, `y`, `z`). Return only"]
+    #[doc = " the value at step `step` is `step` is positive. Return only values with"]
+    #[doc = " `numComp` if `numComp` is positive. Return the gradient of the `value` if"]
+    #[doc = " `gradient` is set. Probes with a geometrical tolerance (in the reference"]
+    #[doc = " unit cube) of `tolerance` if `tolerance` is not zero. Return the result"]
+    #[doc = " from the element described by its coordinates if `xElementCoord`,"]
+    #[doc = " `yElementCoord` and `zElementCoord` are provided."]
     pub fn gmshViewProbe(
         tag: ::std::os::raw::c_int,
         x: f64,
@@ -2853,8 +2853,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Write the view to a file `fileName'. The export format is determined by the"]
-    #[doc = " file extension. Append to the file if `append' is set."]
+    #[doc = " Write the view to a file `fileName`. The export format is determined by the"]
+    #[doc = " file extension. Append to the file if `append` is set."]
     pub fn gmshViewWrite(
         tag: ::std::os::raw::c_int,
         fileName: *const ::std::os::raw::c_char,
@@ -2863,7 +2863,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the numerical option `option' to the value `value' for plugin `name'."]
+    #[doc = " Set the numerical option `option` to the value `value` for plugin `name`."]
     pub fn gmshPluginSetNumber(
         name: *const ::std::os::raw::c_char,
         option: *const ::std::os::raw::c_char,
@@ -2872,7 +2872,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the string option `option' to the value `value' for plugin `name'."]
+    #[doc = " Set the string option `option` to the value `value` for plugin `name`."]
     pub fn gmshPluginSetString(
         name: *const ::std::os::raw::c_char,
         option: *const ::std::os::raw::c_char,
@@ -2881,7 +2881,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Run the plugin `name'."]
+    #[doc = " Run the plugin `name`."]
     pub fn gmshPluginRun(name: *const ::std::os::raw::c_char, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
@@ -2894,7 +2894,7 @@ extern "C" {
     pub fn gmshFltkInitialize(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Wait at most `time' seconds for user interface events and return. If `time'"]
+    #[doc = " Wait at most `time` seconds for user interface events and return. If `time`"]
     #[doc = " < 0, wait indefinitely. First automatically create the user interface if it"]
     #[doc = " has not yet been initialized. Can only be called in the main thread."]
     pub fn gmshFltkWait(time: f64, ierr: *mut ::std::os::raw::c_int);
@@ -2902,13 +2902,13 @@ extern "C" {
 extern "C" {
     #[doc = " Update the user interface (potentially creating new widgets and windows)."]
     #[doc = " First automatically create the user interface if it has not yet been"]
-    #[doc = " initialized. Can only be called in the main thread: use `awake(\"update\")'"]
+    #[doc = " initialized. Can only be called in the main thread: use `awake(\"update\")`"]
     #[doc = " to trigger an update of the user interface from another thread."]
     pub fn gmshFltkUpdate(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
     #[doc = " Awake the main user interface thread and process pending events, and"]
-    #[doc = " optionally perform an action (currently the only `action' allowed is"]
+    #[doc = " optionally perform an action (currently the only `action` allowed is"]
     #[doc = " \"update\")."]
     pub fn gmshFltkAwake(action: *const ::std::os::raw::c_char, ierr: *mut ::std::os::raw::c_int);
 }
@@ -2922,13 +2922,13 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Run the event loop of the graphical user interface, i.e. repeatedly call"]
-    #[doc = " `wait()'. First automatically create the user interface if it has not yet"]
+    #[doc = " `wait()`. First automatically create the user interface if it has not yet"]
     #[doc = " been initialized. Can only be called in the main thread."]
     pub fn gmshFltkRun(ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Select entities in the user interface. If `dim' is >= 0, return only the"]
-    #[doc = " entities of the specified dimension (e.g. points if `dim' == 0)."]
+    #[doc = " Select entities in the user interface. If `dim` is >= 0, return only the"]
+    #[doc = " entities of the specified dimension (e.g. points if `dim` == 0)."]
     pub fn gmshFltkSelectEntities(
         dimTags: *mut *mut ::std::os::raw::c_int,
         dimTags_n: *mut usize,
@@ -2953,7 +2953,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " Set one or more parameters in the ONELAB database, encoded in `format'."]
+    #[doc = " Set one or more parameters in the ONELAB database, encoded in `format`."]
     pub fn gmshOnelabSet(
         data: *const ::std::os::raw::c_char,
         format: *const ::std::os::raw::c_char,
@@ -2961,8 +2961,8 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get all the parameters (or a single one if `name' is specified) from the"]
-    #[doc = " ONELAB database, encoded in `format'."]
+    #[doc = " Get all the parameters (or a single one if `name` is specified) from the"]
+    #[doc = " ONELAB database, encoded in `format`."]
     pub fn gmshOnelabGet(
         data: *mut *mut ::std::os::raw::c_char,
         name: *const ::std::os::raw::c_char,
@@ -2971,7 +2971,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the value of the number parameter `name' in the ONELAB database. Create"]
+    #[doc = " Set the value of the number parameter `name` in the ONELAB database. Create"]
     #[doc = " the parameter if it does not exist; update the value if the parameter"]
     #[doc = " exists."]
     pub fn gmshOnelabSetNumber(
@@ -2982,7 +2982,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Set the value of the string parameter `name' in the ONELAB database. Create"]
+    #[doc = " Set the value of the string parameter `name` in the ONELAB database. Create"]
     #[doc = " the parameter if it does not exist; update the value if the parameter"]
     #[doc = " exists."]
     pub fn gmshOnelabSetString(
@@ -2993,7 +2993,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the value of the number parameter `name' from the ONELAB database."]
+    #[doc = " Get the value of the number parameter `name` from the ONELAB database."]
     #[doc = " Return an empty vector if the parameter does not exist."]
     pub fn gmshOnelabGetNumber(
         name: *const ::std::os::raw::c_char,
@@ -3003,7 +3003,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Get the value of the string parameter `name' from the ONELAB database."]
+    #[doc = " Get the value of the string parameter `name` from the ONELAB database."]
     #[doc = " Return an empty vector if the parameter does not exist."]
     pub fn gmshOnelabGetString(
         name: *const ::std::os::raw::c_char,
@@ -3013,12 +3013,12 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Clear the ONELAB database, or remove a single parameter if `name' is given."]
+    #[doc = " Clear the ONELAB database, or remove a single parameter if `name` is given."]
     pub fn gmshOnelabClear(name: *const ::std::os::raw::c_char, ierr: *mut ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " Run a ONELAB client. If `name' is provided, create a new ONELAB client with"]
-    #[doc = " name `name' and executes `command'. If not, try to run a client that might"]
+    #[doc = " Run a ONELAB client. If `name` is provided, create a new ONELAB client with"]
+    #[doc = " name `name` and executes `command`. If not, try to run a client that might"]
     #[doc = " be linked to the processed input files."]
     pub fn gmshOnelabRun(
         name: *const ::std::os::raw::c_char,
@@ -3027,7 +3027,7 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " Write a `message'. `level' can be \"info\", \"warning\" or \"error\"."]
+    #[doc = " Write a `message`. `level` can be \"info\", \"warning\" or \"error\"."]
     pub fn gmshLoggerWrite(
         message: *const ::std::os::raw::c_char,
         level: *const ::std::os::raw::c_char,
