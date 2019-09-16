@@ -55,7 +55,8 @@ fn main() {
         if lib_dir.join(dylib_name).exists() ||
            lib_dir.join("gmsh.lib").exists() { 
                 println!("cargo:rustc-link-search={}", lib_dir.display());
-                // println!("cargo:rustc-flags=-l gmsh -L {}", lib_dir.display()); 
+                // blocked on https://github.com/rust-lang/cargo/issues/4895
+                // println!("cargo:rustc-dynamic-link-search={}", lib_dir.display())
         } else {
             println!("cargo:warning={} is set to {:?}, but no shared library files were found there", env_gmsh, lib_dir);
         }
