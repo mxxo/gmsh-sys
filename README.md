@@ -1,11 +1,11 @@
-Unoffical bindings to the Gmsh C API (currently v4.4.1).
+Unofficial bindings to the Gmsh C API (currently v4.4.1).
 The bindings are directly generated using `bindgen`.
 They're very low-level and you'll likely want them wrapped in a higher-level crate.
 
 You'll need a copy of the Gmsh SDK library (`libgmsh`) to link with.  
 
 If you're getting linker errors when trying to run `cargo test`, try passing 
-the gmsh library location to `LD_LIBRARY_PATH` during the call: 
+the Gmsh library location to `LD_LIBRARY_PATH` during the call: 
 
 ```shell
 LD_LIBRARY_PATH="<libgmsh-path>" cargo test
