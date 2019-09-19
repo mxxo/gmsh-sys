@@ -3,7 +3,7 @@ name = "gmsh-sys"
 description = "Low-level bindings to the Gmsh API"
 homepage = "https://github.com/mxxo/gmsh-sys"
 
-version = "0.1.1"
+version = "0.1.2-alpha.0"
 authors = ["Max Orok <morok@mevex.com>"]
 edition = "2018"
 license-file =  "LICENSE.txt" 
