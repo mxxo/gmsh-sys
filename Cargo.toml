@@ -1,22 +1,23 @@
 [package]
 name = "gmsh-sys"
 description = "Low-level bindings to the Gmsh API"
+homepage = "https://github.com/mxxo/gmsh-sys"
 
 version = "0.1.0"
 authors = ["Max Orok <morok@mevex.com>"]
 edition = "2018"
-license = "GPL-2.0-or-later"
+license-file =  "LICENSE.txt" 
 
 readme = "README.md"
-documentation = "README.md"
 keywords = ["ffi", "Gmsh"]
 categories = ["external-ffi-bindings", "science", "engineering"]
 
-
 # requires the gmsh library
 links = "gmsh"
-
 build = "build.rs"
 
 [build-dependencies]
 pkg-config = "0.3.16"
+
+[badges]
+maintenance = { status = "experimental" } 
