@@ -10,7 +10,7 @@ license-file =  "LICENSE.txt"
 
 readme = "README.md"
 keywords = ["ffi", "Gmsh"]
-categories = ["external-ffi-bindings", "science", "engineering"]
+categories = ["external-ffi-bindings", "science", "simulation", "visualization"]
 
 # requires the gmsh library
 links = "gmsh"
