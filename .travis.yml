@@ -4,8 +4,7 @@ language: rust
 before_script:
   - wget http://gmsh.info/bin/Linux/gmsh-4.4.1-Linux64-sdk.tgz -O /tmp/gmsh-sdk.tar.gz
   - tar -xvf /tmp/gmsh-sdk.tar.gz
-  - export PATH=$PATH:$PWD/gmsh-4.4.1-Linux64-sdk/lib/
-  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/gmsh-4.4.1-Linux64-sdk/lib/
+  - export GMSH_LIB_DIR=$PWD/gmsh-4.4.1-Linux64-sdk/lib/
 
 cache: cargo
 
