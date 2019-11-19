@@ -12,6 +12,7 @@ before_script:
   - tar -xvf /tmp/gmsh-sdk.tar.gz
   - export GMSH_LIB_DIR=$PWD/gmsh-4.4.1-Linux64-sdk/lib/
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/gmsh-4.4.1-Linux64-sdk/lib/
+  - export GH_TOKEN=$GITHUB_TOKEN
   - pip install 'travis-cargo<0.2' --user && export PATH=$HOME/.local/bin:$PATH
 
 cache: cargo
