@@ -2,11 +2,12 @@
 name = "gmsh-sys"
 description = "Low-level bindings to the Gmsh API"
 homepage = "https://github.com/mxxo/gmsh-sys"
+documentation = "https://mxxo.github.io/gmsh-sys/gmsh_sys/index.html"
 
-version = "0.1.2-alpha.0"
+version = "0.1.2"
 authors = ["Max Orok <morok@mevex.com>"]
 edition = "2018"
-license-file =  "LICENSE.txt" 
+license-file =  "LICENSE.txt"
 
 readme = "README.md"
 keywords = ["ffi", "Gmsh"]
@@ -20,4 +21,4 @@ build = "build.rs"
 pkg-config = "0.3.16"
 
 [badges]
-maintenance = { status = "experimental" } 
+maintenance = { status = "experimental" }
