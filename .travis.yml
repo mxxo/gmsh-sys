@@ -1,5 +1,8 @@
 language: rust
 
+before_install:
+  - sudo apt-get -y install libglu1-mesa
+
 # grab the gmsh SDK
 before_script:
   - wget http://gmsh.info/bin/Linux/gmsh-4.4.1-Linux64-sdk.tgz -O /tmp/gmsh-sdk.tar.gz
