@@ -10,7 +10,7 @@ Gmsh is copyright (C) 1997-2019 by C. Geuzaine and J.-F. Remacle
 By design, the Gmsh C API is purely functional, and only uses elementary types.
 !*/
 
-#![doc(html_logo_url = "https://gitlab.onelab.info/gmsh/gmsh/blob/master/utils/icons/gmsh.svg")]
+#![doc(html_logo_url = "https://gitlab.onelab.info/gmsh/gmsh/raw/master/utils/icons/gmsh.svg")]
 
 // generated from gmshc.h @ commit d1769d55
 include!("bindings.rs");
