@@ -1,6 +1,6 @@
 Unofficial bindings to the Gmsh C API (currently v4.4.1).
 The bindings are directly generated using `bindgen`.
-They're very low-level and you'll likely want them wrapped in a higher-level crate.
+They're very low-level and you'll likely want them wrapped in a higher-level crate, like [rgmsh](https://crates.io/crates/rgmsh).
 
 You'll need a copy of the Gmsh SDK library (`libgmsh`) to link with.  
 
