@@ -32,7 +32,6 @@ use std::path::{Path, PathBuf};
 fn main() {
 
     // 1. environment variable takes first priority
-
     let env_gmsh = "GMSH_LIB_DIR";
     if let Some(lib_dir) = env::var_os(env_gmsh) {
 
@@ -61,7 +60,7 @@ fn main() {
                                     println!("cargo:rustc-link-search={}", path.display());
                                 }
                               }
-            Err(not_found) => { panic!("Couldn't find Gmsh library {}, ", not_found) }
+            Err(not_found) => { eprintln!("pkg-config couldn't find Gmsh library {}, ", not_found) }
         }
     }
 
@@ -71,7 +70,7 @@ fn main() {
 
 fn try_pkgconfig() -> Result<Vec<PathBuf>, String> {
     let mut pkg = pkg_config::Config::new();
-    pkg.atleast_version("4.1"); // earlier then our bindings (4.4), but latest available on Stretch
+    pkg.atleast_version("4.4"); 
 
     match pkg.probe("gmsh") {
         Ok(gmsh_lib) => Ok(gmsh_lib.link_paths), // println!("found it"); true},
