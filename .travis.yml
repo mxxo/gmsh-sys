@@ -1,5 +1,8 @@
 language: rust
 
+rust:
+  - stable
+
 before_install:
   - sudo apt-get -y install libglu1-mesa
 
@@ -9,14 +12,24 @@ before_script:
   - tar -xvf /tmp/gmsh-sdk.tar.gz
   - export GMSH_LIB_DIR=$PWD/gmsh-4.4.1-Linux64-sdk/lib/
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/gmsh-4.4.1-Linux64-sdk/lib/
+  - pip install 'travis-cargo<0.2' --user && export PATH=$HOME/.local/bin:$PATH
 
 cache: cargo
 
-deploy:
-  provider: pages
-  edge: true
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: master
+script:
+  - |
+      travis-cargo build &&
+      travis-cargo test &&
+      travis-cargo --only stable doc
+
+after_success:
+  - travis-cargo --only stable doc-upload
+
+    # deploy:
+    #   provider: pages
+    #   edge: true
+    #   skip_cleanup: true
+    #   github_token: $GITHUB_TOKEN
+    #   keep_history: true
+    #   on:
+    #     branch: master
